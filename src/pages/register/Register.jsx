@@ -7,18 +7,24 @@ import { useContext } from "react"
 import { AuthContext } from "@/providers/AuthProvider"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
+import { Loader2 } from "lucide-react"
 
 const Register = ({
     className,
     ...props
 }) => {
     const { register, handleSubmit, } = useForm();
-    const { createUser } = useContext(AuthContext)
+    const { createUser, loading, setLoading } = useContext(AuthContext)
 
     const onSubmit = async (data) => {
-        console.log(data);
-        const res = await createUser(data?.email, data?.password);
-        console.log(res);
+        try {
+            const res = await createUser(data?.email, data?.password);
+            console.log(res);
+        } catch (err) {
+            //error handling should be done
+            setLoading(false)
+            console.log(err);
+        }
     }
 
     return (
@@ -47,13 +53,13 @@ const Register = ({
                                         </div>
                                         <Input {...register("password")} id="password" type="password" placeholder="e.g., 1518876630" required />
                                     </div>
-                                    <Button type="submit" className="w-full cursor-pointer">
-                                        Register
+                                    <Button disabled={loading} type="submit" className="w-full cursor-pointer">
+                                        {loading ? <> <Loader2 className="animate-spin" />Please wait</> : "Register"}
                                     </Button>
 
                                     <div className="text-center text-sm">
                                         Already logged in before?{" "}
-                                        <Link to="/" className="underline underline-offset-4">
+                                        <Link to="/login" className="underline underline-offset-4">
                                             Login
                                         </Link>
                                     </div>
@@ -62,7 +68,7 @@ const Register = ({
                         </CardContent>
                     </Card>
                     <div
-                        className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4 bg-red-500">
+                        className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4 ">
                         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
                         and <a href="#">Privacy Policy</a>.
                     </div>
