@@ -22,8 +22,9 @@ const Register = ({
             console.log(res);
         } catch (err) {
             //error handling should be done
-            setLoading(false)
             console.log(err);
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -35,7 +36,7 @@ const Register = ({
                 <div className={cn("flex flex-col gap-6", className)} {...props}>
                     <Card className="overflow-hidden p-0">
                         <CardContent>
-                            <form onSubmit={handleSubmit(onSubmit)} className="p-6 md:p-8">
+                            <form onSubmit={handleSubmit(onSubmit)} className="py-6 md:py-8 md:px-2">
                                 <div className="flex flex-col gap-6">
                                     <div className="flex flex-col items-center text-center">
                                         <h1 className="text-2xl font-bold">Registration</h1>
