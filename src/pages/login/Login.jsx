@@ -17,7 +17,6 @@ const Login = ({
 }) => {
     const { register, handleSubmit, } = useForm();
     const { signInUser, loading, setLoading } = useContext(AuthContext)
-    console.log(loading);
 
     const onSubmit = async (data) => {
         try {
@@ -33,9 +32,8 @@ const Login = ({
     }
 
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
+        <div className="flex  min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
             <div className="w-full max-w-sm md:max-w-3xl">
-
 
                 <div className={cn("flex flex-col gap-6", className)} {...props}>
                     <Card className="overflow-hidden p-0">
@@ -75,10 +73,10 @@ const Login = ({
                                 <img
                                     src={buildingImg}
                                     alt="building"
-                                    className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
+                                    className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] " />
 
                                 <img src={IBA_logo} alt="logo"
-                                    className="absolute bottom-1 right-1/2 translate-x-1/2 rounded-full w-16 h-16  dark:brightness-[0.2] dark:grayscale sepia-50" />
+                                    className="absolute bottom-1 right-1/2 translate-x-1/2 rounded-full w-16 h-16  dark:brightness-[0.2] sepia-50" />
                             </div>
                         </CardContent>
                     </Card>
