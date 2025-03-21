@@ -1,4 +1,4 @@
-import { ThemeProviderContext } from "@/providers/ThemeProvider";
+import { ThemeProviderContext } from "@/contexts/AllContexts";
 import { useContext } from "react";
 
 // Custom hook to use the theme

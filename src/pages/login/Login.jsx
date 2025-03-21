@@ -6,10 +6,11 @@ import { Label } from "@/components/ui/label"
 import buildingImg from "@/assets/buildings/building2.jpg"
 import IBA_logo from "@/assets/logo/IBA_logo.png"
 import { useContext } from "react"
-import { AuthContext } from "@/providers/AuthProvider"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { Loader2 } from "lucide-react"
+import { ModeToggle } from "@/components/ui/mode-toggle"
+import { AuthContext } from "@/contexts/AllContexts"
 
 const Login = ({
     className,
@@ -34,7 +35,7 @@ const Login = ({
     return (
         <div className="flex  min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
             <div className="w-full max-w-sm md:max-w-3xl">
-
+                <ModeToggle />
                 <div className={cn("flex flex-col gap-6", className)} {...props}>
                     <Card className="overflow-hidden p-0">
                         <CardContent className="grid p-0 md:grid-cols-2">

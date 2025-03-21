@@ -4,10 +4,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useContext } from "react"
-import { AuthContext } from "@/providers/AuthProvider"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { Loader2 } from "lucide-react"
+import { AuthContext } from "@/contexts/AllContexts"
 
 const Register = ({
     className,
