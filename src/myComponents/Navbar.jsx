@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 
 
@@ -26,56 +26,56 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const menu = <>
         <MenubarMenu>
-            <MenubarTrigger>File</MenubarTrigger>
+            <MenubarTrigger>About Us</MenubarTrigger>
             <MenubarContent>
-                <Link to="/">
-                    <MenubarItem>
-                        Home <MenubarShortcut>⌘T</MenubarShortcut>
+                <Link to="/history">
+                    <MenubarItem >
+                        History <MenubarShortcut><History /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <MenubarItem>
-                    New Window <MenubarShortcut>⌘N</MenubarShortcut>
-                </MenubarItem>
-                <MenubarItem disabled>New Incognito Window</MenubarItem>
-                <MenubarSeparator />
-                <MenubarSub>
-                    <MenubarSubTrigger>Share</MenubarSubTrigger>
-                    <MenubarSubContent>
-                        <MenubarItem>Email link</MenubarItem>
-                        <MenubarItem>Messages</MenubarItem>
-                        <MenubarItem>Notes</MenubarItem>
-                    </MenubarSubContent>
-                </MenubarSub>
-                <MenubarSeparator />
-                <MenubarItem>
-                    Print... <MenubarShortcut>⌘P</MenubarShortcut>
-                </MenubarItem>
+                <Link>
+                    <MenubarItem >
+                        Vision <MenubarShortcut><Telescope /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem >
+                        Mission <MenubarShortcut><Focus /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem >
+                        Goal <MenubarShortcut><Crosshair /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem >
+                        Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-            <MenubarTrigger>Edit</MenubarTrigger>
+            <MenubarTrigger>Admission</MenubarTrigger>
             <MenubarContent>
-                <MenubarItem>
-                    Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-                </MenubarItem>
-                <MenubarItem>
-                    Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-                </MenubarItem>
-                <MenubarSeparator />
-                <MenubarSub>
-                    <MenubarSubTrigger>Find</MenubarSubTrigger>
-                    <MenubarSubContent>
-                        <MenubarItem>Search the web</MenubarItem>
-                        <MenubarSeparator />
-                        <MenubarItem>Find...</MenubarItem>
-                        <MenubarItem>Find Next</MenubarItem>
-                        <MenubarItem>Find Previous</MenubarItem>
-                    </MenubarSubContent>
-                </MenubarSub>
-                <MenubarSeparator />
-                <MenubarItem>Cut</MenubarItem>
-                <MenubarItem>Copy</MenubarItem>
-                <MenubarItem>Paste</MenubarItem>
+                <Link to="/BbaProgramAdmission">
+                    <MenubarItem>BBA Program</MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(BBA Graduates)</span></MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(Evening)</span></MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(Executive)</span></MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem>M.Phid</MenubarItem>
+                </Link>
+                <Link>
+                    <MenubarItem>PhD</MenubarItem>
+                </Link>
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
@@ -114,7 +114,7 @@ const Navbar = () => {
         </MenubarMenu>
     </>
     return (
-        <Menubar className="sticky top-0 z-50 bg-card">
+        <Menubar className="sticky top-0 z-50 bg-card/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
                 <img src={img} className="w-8 object-cover" alt="IBA logo" />
                 <h1 className="text-xl">IBA</h1>

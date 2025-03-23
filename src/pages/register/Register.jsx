@@ -3,18 +3,19 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useContext } from "react"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { Loader2 } from "lucide-react"
-import { AuthContext } from "@/contexts/AllContexts"
+import { ModeToggle } from "@/components/ui/mode-toggle"
+import useAuth from "@/hooks/useAuth"
+import LoadingSpinner from "@/myComponents/LoadingSpinner"
 
 const Register = ({
     className,
     ...props
 }) => {
     const { register, handleSubmit, } = useForm();
-    const { createUser, loading, setLoading } = useContext(AuthContext)
+    const { createUser, loading, setLoading } = useAuth()
 
     const onSubmit = async (data) => {
         try {
@@ -28,11 +29,15 @@ const Register = ({
         }
     }
 
+    if (loading) return <LoadingSpinner />
+
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
+        <div className="relative flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
+            <div className="absolute top-5 right-5">
+                <ModeToggle />
+            </div>
+
             <div className="w-full max-w-sm">
-
-
                 <div className={cn("flex flex-col gap-6", className)} {...props}>
                     <Card className="overflow-hidden p-0">
                         <CardContent>
@@ -74,9 +79,6 @@ const Register = ({
                         and <a href="#">Privacy Policy</a>.
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     );

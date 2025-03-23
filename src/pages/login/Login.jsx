@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { Loader2 } from "lucide-react"
 import { AuthContext } from "@/contexts/AllContexts"
+import { ModeToggle } from "@/components/ui/mode-toggle"
 
 const Login = ({
     className,
@@ -33,6 +34,9 @@ const Login = ({
 
     return (
         <div className="flex  min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
+            <div className="absolute top-5 right-5">
+                <ModeToggle />
+            </div>
             <div className="w-full max-w-sm md:max-w-3xl">
 
                 <div className={cn("flex flex-col gap-6", className)} {...props}>

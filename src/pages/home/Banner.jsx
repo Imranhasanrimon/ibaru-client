@@ -4,13 +4,12 @@ import { useTheme } from "@/hooks/useTheme";
 
 const Banner = () => {
     const { theme } = useTheme()
-    console.log(theme);
     return (
         <div className="relative h-screen flex items-center justify-center text-center overflow-hidden">
             <Parallax
                 className="absolute inset-0"
                 style={{
-                    backgroundImage: `linear-gradient(to bottom,${theme === 'dark' ? " rgba(15, 23, 42), rgba(15, 23, 42, 0.7), rgba(15, 23, 42)" : " rgba(248, 250, 252,0.7), rgba(248, 250, 252, 0.0), rgba(248, 250, 252,0.5)"}), url(${imageUrl})`,
+                    backgroundImage: `linear-gradient(to bottom,${theme === 'dark' ? " rgba(15, 23, 42,0.7), rgba(15, 23, 42, 0.4), rgba(15, 23, 42,0.7)" : " rgba(248, 250, 252,0.7), rgba(248, 250, 252, 0.0), rgba(248, 250, 252,0.5)"}), url(${imageUrl})`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
                 }}
