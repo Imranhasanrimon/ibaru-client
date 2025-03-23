@@ -15,22 +15,27 @@ import {
 } from "@/components/ui/menubar"
 import img from "../assets/logo/IBA_logo_rounded.png"
 import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/ui/mode-toggle";
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
     return (
-        <Menubar>
+        <Menubar className="bg-card">
             <div className="flex items-center gap-2">
                 <img src={img} className="w-8 object-cover" alt="IBA logo" />
                 <h1>IBA</h1>
             </div>
+
             <div className="flex items-center">
                 <MenubarMenu>
                     <MenubarTrigger>File</MenubarTrigger>
                     <MenubarContent>
-                        <MenubarItem>
-                            New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                        </MenubarItem>
+                        <Link to="/">
+                            <MenubarItem>
+                                Home <MenubarShortcut>⌘T</MenubarShortcut>
+                            </MenubarItem>
+                        </Link>
                         <MenubarItem>
                             New Window <MenubarShortcut>⌘N</MenubarShortcut>
                         </MenubarItem>
@@ -111,7 +116,13 @@ const Navbar = () => {
                     </MenubarContent>
                 </MenubarMenu>
             </div>
-            <Button>Login</Button>
+
+            <div className="flex items-center gap-2 justify-between">
+                <ModeToggle />
+                <Link to="/login">
+                    <Button className="cursor-pointer">Login</Button>
+                </Link>
+            </div>
         </Menubar>
 
     );
