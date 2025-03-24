@@ -13,6 +13,16 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from "@/components/ui/menubar"
+import {
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+} from "@/components/ui/avatar"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 import img from "../assets/logo/IBA_logo_rounded.png"
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
@@ -20,10 +30,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, Telescope, Focus, History, Crosshair, Mail } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import useAuth from "@/hooks/useAuth";
 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useAuth();
     const menu = <>
         <MenubarMenu>
             <MenubarTrigger>About Us</MenubarTrigger>
@@ -146,9 +158,25 @@ const Navbar = () => {
 
             <div className="flex items-center gap-2 justify-between">
                 <ModeToggle />
-                <Link to="/login">
-                    <Button className="cursor-pointer">Login</Button>
-                </Link>
+                {user?.email ?
+                    <Link to="/dashboard">
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Avatar>
+                                    <AvatarImage src={user?.photoURL} alt="Student's Image" />
+                                    <AvatarFallback>{user?.email}</AvatarFallback>
+                                </Avatar>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Your Account</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </Link>
+                    :
+                    <Link to="/login">
+                        <Button className="cursor-pointer">Login</Button>
+                    </Link>}
+
             </div>
         </Menubar>
 

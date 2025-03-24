@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Loader2 } from "lucide-react"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import useAuth from "@/hooks/useAuth"
@@ -16,7 +16,8 @@ const Register = ({
     className,
     ...props
 }) => {
-    const { register, handleSubmit, } = useForm();
+    const navigate = useNavigate();
+    const { register, handleSubmit, reset, } = useForm();
     const { createUser, loading, setLoading, updateUserProfile } = useAuth()
 
     const onSubmit = async (data) => {
@@ -25,7 +26,14 @@ const Register = ({
         const session = email.slice(0, 2);
         const batch = session - 15;
         const image = `https://academic.ru.ac.bd/studentdata/session${session}/${email}.jpg`;
-        const userInfo = { studentId: email, registration: password, session: `${session - 1}-${session}`, batch, image }
+
+        const userInfo = {
+            studentId: email,
+            registration: password,
+            session: `${session - 1}-${session}`,
+            batch,
+            image
+        }
 
         if (email.length < 10 || password.length < 10) {
             toast("Input must be 10 characters !", {
@@ -40,7 +48,16 @@ const Register = ({
         try {
             await createUser(finalEmail, password);
             await updateUserProfile(image);
-            await axiosInstance.post('/users/create', userInfo)
+            await axiosInstance.post('/users/create', userInfo);
+            navigate('/');
+            reset();
+            toast("Registration Successful!", {
+                description: "You don’t need to register again—just log in each time.",
+                action: {
+                    label: "Okay",
+                },
+            });
+
         } catch (err) {
             //error handling should be done
             console.log(err);
