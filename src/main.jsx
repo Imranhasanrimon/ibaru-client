@@ -6,6 +6,7 @@ import { router } from './routes/router'
 import AuthProvider from './providers/AuthProvider'
 import { ThemeProvider } from './providers/ThemeProvider'
 import { ParallaxProvider } from "react-scroll-parallax"
+import { Toaster } from "@/components/ui/sonner"
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <ParallaxProvider>
           <RouterProvider router={router} />
+          <Toaster />
         </ParallaxProvider>
       </ThemeProvider>
     </AuthProvider>

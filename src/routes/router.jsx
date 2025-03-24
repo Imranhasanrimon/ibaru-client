@@ -1,4 +1,5 @@
 import MainLayout from "@/layouts/MainLayout";
+import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import ErrorPage from "@/pages/error/ErrorPage";
 import Home from "@/pages/home/Home";
 import Login from "@/pages/login/Login";
@@ -24,5 +25,10 @@ export const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register />
+    },
+    //delete
+    {
+        path: "/spinner",
+        element: <LoadingSpinner />
     },
 ]);

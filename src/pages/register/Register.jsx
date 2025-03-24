@@ -9,18 +9,38 @@ import { Loader2 } from "lucide-react"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import useAuth from "@/hooks/useAuth"
 import LoadingSpinner from "@/myComponents/LoadingSpinner"
+import { toast } from "sonner"
+import { axiosInstance } from "@/hooks/useAxiosSecure"
 
 const Register = ({
     className,
     ...props
 }) => {
     const { register, handleSubmit, } = useForm();
-    const { createUser, loading, setLoading } = useAuth()
+    const { createUser, loading, setLoading, updateUserProfile } = useAuth()
 
     const onSubmit = async (data) => {
+        const { email, password } = data;
+        const finalEmail = email + '@gmail.com';
+        const session = email.slice(0, 2);
+        const batch = session - 15;
+        const image = `https://academic.ru.ac.bd/studentdata/session${session}/${email}.jpg`;
+        const userInfo = { studentId: email, registration: password, session: `${session - 1}-${session}`, batch, image }
+
+        if (email.length < 10 || password.length < 10) {
+            toast("Input must be 10 characters !", {
+                description: "There might be a typo in ID or registration no.",
+                action: {
+                    label: "❌",
+                },
+            });
+            return;
+        }
+
         try {
-            const res = await createUser(data?.email, data?.password);
-            console.log(res);
+            await createUser(finalEmail, password);
+            await updateUserProfile(image);
+            await axiosInstance.post('/users/create', userInfo)
         } catch (err) {
             //error handling should be done
             console.log(err);
@@ -51,7 +71,7 @@ const Register = ({
                                     </div>
                                     <div className="grid gap-3">
                                         <Label htmlFor="email">Student ID No</Label>
-                                        <Input {...register("email")} id="email" type="email" placeholder="e.g., 2113285125" required />
+                                        <Input {...register("email")} id="email" type="text" placeholder="e.g., 2113285125" required />
                                     </div>
                                     <div className="grid gap-3">
                                         <div className="flex items-center">
