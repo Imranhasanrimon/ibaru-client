@@ -8,14 +8,16 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "@/hooks/useTheme"
+import { useLocation } from "react-router-dom";
 
 export function ModeToggle() {
-    const { setTheme } = useTheme()
+    const { setTheme } = useTheme();
+    const { pathname } = useLocation();
 
     return (
         <DropdownMenu >
             <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="cursor-pointer" size="icon">
+                <Button variant="outline" className={`cursor-pointer ${pathname.includes("dashboard") && "h-7 w-7"}`} size="icon">
                     <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                     <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                     <span className="sr-only">Toggle theme</span>

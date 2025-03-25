@@ -1,3 +1,4 @@
+import Page from "@/app/dashboard/page";
 import MainLayout from "@/layouts/MainLayout";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import ErrorPage from "@/pages/error/ErrorPage";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
     {
         path: "/register",
         element: <Register />
+    },
+    {
+        path: "/dashboard",
+        element: <Page />
     },
     //delete
     {
