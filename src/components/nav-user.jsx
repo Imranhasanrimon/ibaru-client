@@ -26,17 +26,32 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import useAuth from "@/hooks/useAuth";
+import { toast } from "sonner";
+import { Link, useNavigate } from "react-router-dom";
 
 export function NavUser({
   user
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
+  const { signOutUser } = useAuth();
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    await signOutUser();
+
+    toast("Log out successfull!", {
+      description: "Now you cannot access the IBA's internal info and student dashboard",
+    })
+
+    navigate("/")
+  }
 
   return (
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+          <DropdownMenuTrigger className="cursor-pointer" asChild>
             <SidebarMenuButton
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
@@ -74,21 +89,23 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <IconUserCircle />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
+              <Link to="/dashboard/my-account">
+                <DropdownMenuItem className="cursor-pointer">
+                  <IconUserCircle />
+                  My Account
+                </DropdownMenuItem>
+              </Link>
+              <DropdownMenuItem className="cursor-pointer">
                 <IconCreditCard />
                 Billing
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
                 <IconNotification />
                 Notifications
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer" onClick={logout}>
               <IconLogout />
               Log out
             </DropdownMenuItem>

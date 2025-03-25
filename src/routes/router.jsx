@@ -1,3 +1,4 @@
+import DefaultPage from "@/app/dashboard/DefaultPage";
 import Page from "@/app/dashboard/page";
 import MainLayout from "@/layouts/MainLayout";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
@@ -29,11 +30,21 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Page />
+        element: <Page />,
+        children: [
+            {
+                path: "",
+                element: <DefaultPage />
+            },
+            {
+                path: "my-account",
+                element: <h1>my account</h1>
+            },
+        ]
     },
     //delete
-    {
-        path: "/spinner",
-        element: <LoadingSpinner />
-    },
+    // {
+    //     path: "/spinner",
+    //     element: <LoadingSpinner />
+    // },
 ]);
