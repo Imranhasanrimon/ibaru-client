@@ -70,22 +70,22 @@ const Navbar = () => {
         <MenubarMenu>
             <MenubarTrigger>Admission</MenubarTrigger>
             <MenubarContent>
-                <Link to="/BbaProgramAdmission">
+                <Link to="/admission-bba">
                     <MenubarItem className="cursor-pointer">BBA Program</MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/admission-mba">
                     <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(BBA Graduates)</span></MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/admission-mba-evening">
                     <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(Evening)</span></MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/admission-mba-executive">
                     <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(Executive)</span></MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/admission-m-phil">
                     <MenubarItem className="cursor-pointer">M.Phid</MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/admission-phd">
                     <MenubarItem className="cursor-pointer">PhD</MenubarItem>
                 </Link>
             </MenubarContent>
@@ -128,8 +128,10 @@ const Navbar = () => {
     return (
         <Menubar className="sticky top-0 z-50 bg-background/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
-                <img src={img} className="w-8 object-cover" alt="IBA logo" />
-                <h1 className="text-xl">IBA</h1>
+                <Link to="/" className="flex items-center gap-2 cursor-pointer">
+                    <img src={img} className="w-8 object-cover" alt="IBA logo" />
+                    <h1 className="text-xl">IBA</h1>
+                </Link>
                 {/* Mobile Drawer Menu */}
                 <div className="sm:hidden ml-2">
                     <Sheet open={isOpen} onOpenChange={setIsOpen} side="left">

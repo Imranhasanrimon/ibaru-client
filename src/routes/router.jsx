@@ -12,6 +12,8 @@ import Vision from "@/pages/aboutUs/Vision";
 import Mission from "@/pages/aboutUs/Mission";
 import Goal from "@/pages/aboutUs/Goal";
 import MessageOfDirector from "@/pages/aboutUs/MessageOfDirector";
+import BBA from "@/pages/admission/BBA";
+import MBA from "@/pages/admission/MBA";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +44,31 @@ export const router = createBrowserRouter([
             },
             {
                 path: "message-of-director",
+                element: <MessageOfDirector />
+            },
+            // admission
+            {
+                path: "admission-bba",
+                element: <BBA />
+            },
+            {
+                path: "admission-mba",
+                element: <MBA />
+            },
+            {
+                path: "admission-mba-evening",
+                element: <MessageOfDirector />
+            },
+            {
+                path: "admission-mba-executive",
+                element: <MessageOfDirector />
+            },
+            {
+                path: "admission-m-phil",
+                element: <MessageOfDirector />
+            },
+            {
+                path: "admission-phd",
                 element: <MessageOfDirector />
             },
         ]
