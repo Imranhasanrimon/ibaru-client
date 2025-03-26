@@ -5,10 +5,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import buildingImg from "@/assets/buildings/building2.jpg"
 import IBA_logo from "@/assets/logo/IBA_logo.png"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom"
-import { Loader2 } from "lucide-react"
+import { Loader2, Eye, EyeOff } from "lucide-react"
 import { AuthContext } from "@/contexts/AllContexts"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { toast } from "sonner"
@@ -18,9 +18,10 @@ const Login = ({
     className,
     ...props
 }) => {
+    const [eyeStatus, setEyeStatus] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/"
+    const from = location.state?.from?.pathname || "/";
     const { register, handleSubmit, reset } = useForm();
     const { signInUser, loading, setLoading } = useContext(AuthContext)
 
@@ -69,11 +70,16 @@ const Login = ({
                                         <Label htmlFor="email">Student ID No</Label>
                                         <Input {...register("email")} type="number" className="no-spinner appearance-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., 2113285125" required />
                                     </div>
-                                    <div className="grid gap-3">
+                                    <div className="grid gap-3 relative">
                                         <div className="flex items-center">
                                             <Label htmlFor="password">Registration No</Label>
                                         </div>
-                                        <Input {...register("password")} id="password" type="password" placeholder="e.g., 1518876630" required />
+                                        <Input {...register("password")} type={eyeStatus ? "text" : "password"} placeholder="e.g., 1518876630" required />
+                                        <span className="absolute right-3 top-9 cursor-pointer"
+                                            onClick={() => setEyeStatus(!eyeStatus)}
+                                        >
+                                            {eyeStatus ? <EyeOff size={18} /> : <Eye size={18} />}
+                                        </span>
                                     </div>
                                     <Button disabled={loading} type="submit" className="w-full cursor-pointer">
                                         {loading ? <> <Loader2 className="animate-spin" />

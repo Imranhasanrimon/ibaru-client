@@ -5,17 +5,19 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
-import { Loader2 } from "lucide-react"
+import { Loader2, Eye, EyeOff } from "lucide-react"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import useAuth from "@/hooks/useAuth"
 import LoadingSpinner from "@/myComponents/LoadingSpinner"
 import { toast } from "sonner"
 import { axiosInstance } from "@/hooks/useAxiosSecure"
+import { useState } from "react"
 
 const Register = ({
     className,
     ...props
 }) => {
+    const [eyeStatus, setEyeStatus] = useState(false);
     const navigate = useNavigate();
     const { register, handleSubmit, reset, } = useForm();
     const { createUser, loading, setLoading, updateUserProfile } = useAuth()
@@ -90,11 +92,16 @@ const Register = ({
                                         <Label htmlFor="email">Student ID No</Label>
                                         <Input {...register("email")} className="no-spinner appearance-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" placeholder="e.g., 2113285125" required />
                                     </div>
-                                    <div className="grid gap-3">
+                                    <div className="grid gap-3 relative">
                                         <div className="flex items-center">
                                             <Label htmlFor="password">Registration No</Label>
                                         </div>
-                                        <Input {...register("password")} id="password" type="password" placeholder="e.g., 1518876630" required />
+                                        <Input {...register("password")} id="password" type={eyeStatus ? "text" : "password"} placeholder="e.g., 1518876630" required />
+                                        <span className="absolute right-3 top-9 cursor-pointer"
+                                            onClick={() => setEyeStatus(!eyeStatus)}
+                                        >
+                                            {eyeStatus ? <EyeOff size={18} /> : <Eye size={18} />}
+                                        </span>
                                     </div>
                                     <Button disabled={loading} type="submit" className="w-full cursor-pointer">
                                         {loading ? <> <Loader2 className="animate-spin" />Please wait</> : "Register"}
