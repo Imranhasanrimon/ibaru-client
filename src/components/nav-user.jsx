@@ -40,7 +40,7 @@ export function NavUser({
   const logout = async () => {
     await signOutUser();
 
-    toast("Log out successfull!", {
+    toast("Log out successful!", {
       description: "Now you cannot access the IBA's internal info and student dashboard",
     })
 

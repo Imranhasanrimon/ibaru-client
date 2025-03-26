@@ -7,22 +7,36 @@ import buildingImg from "@/assets/buildings/building2.jpg"
 import IBA_logo from "@/assets/logo/IBA_logo.png"
 import { useContext } from "react"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Loader2 } from "lucide-react"
 import { AuthContext } from "@/contexts/AllContexts"
 import { ModeToggle } from "@/components/ui/mode-toggle"
+import { toast } from "sonner"
+import LoadingSpinner from "@/myComponents/LoadingSpinner"
 
 const Login = ({
     className,
     ...props
 }) => {
-    const { register, handleSubmit, } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/"
+    const { register, handleSubmit, reset } = useForm();
     const { signInUser, loading, setLoading } = useContext(AuthContext)
 
     const onSubmit = async (data) => {
         try {
-            const res = await signInUser(data?.email, data?.password);
-            console.log(res);
+            await signInUser(data?.email + "@gmail.com", data?.password);
+            reset();
+            toast("Login Successful!", {
+                description: "Keep your account updated with the powerful student dashboard.",
+                action: {
+                    label: "Dashboard",
+                    onClick: () => navigate("/dashboard")
+                },
+            });
+            navigate(from, { replace: true });
+
         } catch (err) {
             //error handling should be done
             console.log(err);
@@ -32,6 +46,7 @@ const Login = ({
         }
     }
 
+    if (loading) return <LoadingSpinner />
     return (
         <div className="flex  min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
             <div className="absolute top-5 right-5">
@@ -52,7 +67,7 @@ const Login = ({
                                     </div>
                                     <div className="grid gap-3">
                                         <Label htmlFor="email">Student ID No</Label>
-                                        <Input {...register("email")} id="email" type="email" placeholder="e.g., 2113285125" required />
+                                        <Input {...register("email")} type="number" className="no-spinner appearance-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g., 2113285125" required />
                                     </div>
                                     <div className="grid gap-3">
                                         <div className="flex items-center">

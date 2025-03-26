@@ -49,7 +49,6 @@ const Register = ({
             await createUser(finalEmail, password);
             await updateUserProfile(image);
             await axiosInstance.post('/users/create', userInfo);
-            navigate('/');
             reset();
             toast("Registration Successful!", {
                 description: "You don’t need to register again—just log in each time.",
@@ -57,6 +56,7 @@ const Register = ({
                     label: "Okay",
                 },
             });
+            navigate('/');
 
         } catch (err) {
             //error handling should be done
@@ -88,7 +88,7 @@ const Register = ({
                                     </div>
                                     <div className="grid gap-3">
                                         <Label htmlFor="email">Student ID No</Label>
-                                        <Input {...register("email")} id="email" type="text" placeholder="e.g., 2113285125" required />
+                                        <Input {...register("email")} className="no-spinner appearance-none border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" type="number" placeholder="e.g., 2113285125" required />
                                     </div>
                                     <div className="grid gap-3">
                                         <div className="flex items-center">
