@@ -50,17 +50,17 @@ const Navbar = () => {
                         Vision <MenubarShortcut><Telescope /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/mission">
                     <MenubarItem className="cursor-pointer" >
                         Mission <MenubarShortcut><Focus /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/goal">
                     <MenubarItem className="cursor-pointer" >
                         Goal <MenubarShortcut><Crosshair /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/message-of-director">
                     <MenubarItem className="cursor-pointer" >
                         Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
                     </MenubarItem>

@@ -9,6 +9,8 @@ import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "@/pages/dashboard/DefaultPage";
 import History from "@/pages/aboutUs/History";
 import Vision from "@/pages/aboutUs/Vision";
+import Mission from "@/pages/aboutUs/Mission";
+import Goal from "@/pages/aboutUs/Goal";
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +30,18 @@ export const router = createBrowserRouter([
             {
                 path: "vision",
                 element: <Vision />
+            },
+            {
+                path: "mission",
+                element: <Mission />
+            },
+            {
+                path: "goal",
+                element: <Goal />
+            },
+            {
+                path: "message-of-director",
+                element: <Mission />
             },
         ]
     },
