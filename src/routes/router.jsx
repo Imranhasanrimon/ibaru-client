@@ -11,6 +11,7 @@ import History from "@/pages/aboutUs/History";
 import Vision from "@/pages/aboutUs/Vision";
 import Mission from "@/pages/aboutUs/Mission";
 import Goal from "@/pages/aboutUs/Goal";
+import MessageOfDirector from "@/pages/aboutUs/MessageOfDirector";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "message-of-director",
-                element: <Mission />
+                element: <MessageOfDirector />
             },
         ]
     },
