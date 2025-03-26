@@ -45,7 +45,7 @@ const Navbar = () => {
                         History <MenubarShortcut><History /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link>
+                <Link to="/vision">
                     <MenubarItem className="cursor-pointer" >
                         Vision <MenubarShortcut><Telescope /></MenubarShortcut>
                     </MenubarItem>

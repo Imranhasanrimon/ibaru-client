@@ -8,6 +8,7 @@ import Register from "@/pages/register/Register";
 import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "@/pages/dashboard/DefaultPage";
 import History from "@/pages/aboutUs/History";
+import Vision from "@/pages/aboutUs/Vision";
 
 export const router = createBrowserRouter([
     {
@@ -19,9 +20,14 @@ export const router = createBrowserRouter([
                 path: "",
                 element: <Home />
             },
+            //about us
             {
                 path: "history",
                 element: <History />
+            },
+            {
+                path: "vision",
+                element: <Vision />
             },
         ]
     },
