@@ -7,6 +7,7 @@ import Login from "@/pages/login/Login";
 import Register from "@/pages/register/Register";
 import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "@/pages/dashboard/DefaultPage";
+import History from "@/pages/aboutUs/History";
 
 export const router = createBrowserRouter([
     {
@@ -17,7 +18,11 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <Home />
-            }
+            },
+            {
+                path: "history",
+                element: <History />
+            },
         ]
     },
     {

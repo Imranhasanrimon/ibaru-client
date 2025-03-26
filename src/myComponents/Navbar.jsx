@@ -41,27 +41,27 @@ const Navbar = () => {
             <MenubarTrigger>About Us</MenubarTrigger>
             <MenubarContent>
                 <Link to="/history">
-                    <MenubarItem >
+                    <MenubarItem className="cursor-pointer" >
                         History <MenubarShortcut><History /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem >
+                    <MenubarItem className="cursor-pointer" >
                         Vision <MenubarShortcut><Telescope /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem >
+                    <MenubarItem className="cursor-pointer" >
                         Mission <MenubarShortcut><Focus /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem >
+                    <MenubarItem className="cursor-pointer" >
                         Goal <MenubarShortcut><Crosshair /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem >
+                    <MenubarItem className="cursor-pointer" >
                         Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
@@ -71,22 +71,22 @@ const Navbar = () => {
             <MenubarTrigger>Admission</MenubarTrigger>
             <MenubarContent>
                 <Link to="/BbaProgramAdmission">
-                    <MenubarItem>BBA Program</MenubarItem>
+                    <MenubarItem className="cursor-pointer">BBA Program</MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(BBA Graduates)</span></MenubarItem>
+                    <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(BBA Graduates)</span></MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(Evening)</span></MenubarItem>
+                    <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(Evening)</span></MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem>MBA Program <span className="text-sm text-slate-500">(Executive)</span></MenubarItem>
+                    <MenubarItem className="cursor-pointer">MBA Program <span className="text-sm text-slate-500">(Executive)</span></MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem>M.Phid</MenubarItem>
+                    <MenubarItem className="cursor-pointer">M.Phid</MenubarItem>
                 </Link>
                 <Link>
-                    <MenubarItem>PhD</MenubarItem>
+                    <MenubarItem className="cursor-pointer">PhD</MenubarItem>
                 </Link>
             </MenubarContent>
         </MenubarMenu>
@@ -98,16 +98,16 @@ const Navbar = () => {
                     Always Show Full URLs
                 </MenubarCheckboxItem>
                 <MenubarSeparator />
-                <MenubarItem inset>
+                <MenubarItem className="cursor-pointer" inset>
                     Reload <MenubarShortcut>⌘R</MenubarShortcut>
                 </MenubarItem>
-                <MenubarItem disabled inset>
+                <MenubarItem className="cursor-pointer" disabled inset>
                     Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
                 </MenubarItem>
                 <MenubarSeparator />
-                <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+                <MenubarItem className="cursor-pointer" inset>Toggle Fullscreen</MenubarItem>
                 <MenubarSeparator />
-                <MenubarItem inset>Hide Sidebar</MenubarItem>
+                <MenubarItem className="cursor-pointer" inset>Hide Sidebar</MenubarItem>
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
@@ -119,14 +119,14 @@ const Navbar = () => {
                     <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
                 </MenubarRadioGroup>
                 <MenubarSeparator />
-                <MenubarItem inset>Edit...</MenubarItem>
+                <MenubarItem className="cursor-pointer" inset>Edit...</MenubarItem>
                 <MenubarSeparator />
-                <MenubarItem inset>Add Profile...</MenubarItem>
+                <MenubarItem className="cursor-pointer" inset>Add Profile...</MenubarItem>
             </MenubarContent>
         </MenubarMenu>
     </>
     return (
-        <Menubar className="sticky top-0 z-50 bg-card/50 backdrop-blur-md">
+        <Menubar className="sticky top-0 z-50 bg-background/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
                 <img src={img} className="w-8 object-cover" alt="IBA logo" />
                 <h1 className="text-xl">IBA</h1>
@@ -138,10 +138,10 @@ const Navbar = () => {
                                 <Menu className="h-6 w-6" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent className="p-4 bg-card" side="left">
+                        <SheetContent className="p-4" side="left">
                             <SheetTitle className="sr-only">My Hidden Sheet Title</SheetTitle>
                             <SheetDescription>Contents</SheetDescription>
-                            <Menubar className="flex flex-col rounded-lg bg-muted">
+                            <Menubar className="flex flex-col rounded-lg">
                                 {menu}
                             </Menubar>
                         </SheetContent>
