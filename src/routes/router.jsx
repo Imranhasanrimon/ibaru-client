@@ -1,5 +1,4 @@
-import DefaultPage from "@/app/dashboard/DefaultPage";
-import Page from "@/app/dashboard/page";
+import Page from "@/pages/dashboard/page";
 import MainLayout from "@/layouts/MainLayout";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import ErrorPage from "@/pages/error/ErrorPage";
@@ -7,6 +6,7 @@ import Home from "@/pages/home/Home";
 import Login from "@/pages/login/Login";
 import Register from "@/pages/register/Register";
 import { createBrowserRouter } from "react-router-dom";
+import DefaultPage from "@/pages/dashboard/DefaultPage";
 
 export const router = createBrowserRouter([
     {
@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
         ]
     },
     //delete
-    // {
-    //     path: "/spinner",
-    //     element: <LoadingSpinner />
-    // },
+    {
+        path: "/spinner",
+        element: <LoadingSpinner />
+    },
 ]);
