@@ -2,7 +2,7 @@ import {
   IconCreditCard,
   IconDotsVertical,
   IconLogout,
-  IconNotification,
+  IconReportAnalytics,
   IconUserCircle,
 } from "@tabler/icons-react"
 
@@ -95,14 +95,20 @@ export function NavUser({
                   My Account
                 </DropdownMenuItem>
               </Link>
-              <DropdownMenuItem className="cursor-pointer">
-                <IconCreditCard />
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">
-                <IconNotification />
-                Notifications
-              </DropdownMenuItem>
+              <Link to="/dashboard/my-fees">
+                <DropdownMenuItem className="cursor-pointer">
+                  <IconCreditCard />
+                  My Fees
+                </DropdownMenuItem>
+              </Link>
+              <Link to="/dashboard/my-result">
+                <DropdownMenuItem className="cursor-pointer">
+                  <IconReportAnalytics />
+                  My Result
+                </DropdownMenuItem>
+              </Link>
+
+
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="cursor-pointer" onClick={logout}>

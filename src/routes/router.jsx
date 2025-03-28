@@ -97,6 +97,14 @@ export const router = createBrowserRouter([
                 path: "my-account",
                 element: <h1>my account</h1>
             },
+            {
+                path: "my-fees",
+                element: <h1>my fees</h1>
+            },
+            {
+                path: "my-result",
+                element: <h1>my result</h1>
+            },
         ]
     },
     //delete
