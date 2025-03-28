@@ -49,7 +49,7 @@ const MBAEvening = () => {
                             </TableHeader>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell>Program Coordination Fee (per semester)</TableCell>
+                                    <TableCell>Program Coordination Fee </TableCell>
                                     <TableCell>-</TableCell>
                                 </TableRow>
                                 <TableRow>
@@ -81,7 +81,7 @@ const MBAEvening = () => {
                                     <TableCell>-</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell>Original Certificate Fee with Convocation Fee</TableCell>
+                                    <TableCell>Original Certificate Fee </TableCell>
                                     <TableCell>-</TableCell>
                                 </TableRow>
                                 <TableRow>

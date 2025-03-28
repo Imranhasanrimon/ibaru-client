@@ -15,6 +15,9 @@ import MessageOfDirector from "@/pages/aboutUs/MessageOfDirector";
 import BBA from "@/pages/admission/BBA";
 import MBA from "@/pages/admission/MBA";
 import MBAEvening from "@/pages/admission/MBAEvening";
+import MPhil from "@/pages/admission/MPhil";
+import MBAExecutive from "@/pages/admission/MBAExecutive";
+import PHD from "@/pages/admission/PHD";
 
 export const router = createBrowserRouter([
     {
@@ -62,15 +65,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: "admission-mba-executive",
-                element: <MessageOfDirector />
+                element: <MBAExecutive />
             },
             {
                 path: "admission-m-phil",
-                element: <MessageOfDirector />
+                element: <MPhil />
             },
             {
                 path: "admission-phd",
-                element: <MessageOfDirector />
+                element: <PHD />
             },
         ]
     },
