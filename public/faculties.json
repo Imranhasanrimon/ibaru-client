@@ -1,0 +1,148 @@
+[
+    {
+        "name": "Dr. Md. Mohsin-Ul Islam (PRL)",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "Ph.D. (Keio, Tokyo)",
+            "M.Com.",
+            "B.Com (Hons), D.U"
+        ],
+        "contact_no": "01712734438",
+        "email": "mohsin.iba.ru@gmail.com"
+    },
+    {
+        "name": "Dr. Muhammad Rafiqul Islam",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "Ph.D.(Delhi)",
+            "M.Com",
+            "B.Com (R.U.)"
+        ],
+        "contact_no": "01715435339",
+        "email": "skmri@yahoo.com"
+    },
+    {
+        "name": "Dr. A.K. Shamsuddoha",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "World Bank Fellow",
+            "Ph.D. (Brisbane)",
+            "M.Com (Melbourne)",
+            "M.Com (RU)"
+        ],
+        "contact_no": "01712337046",
+        "email": "aksdoha@gmail.com"
+    },
+    {
+        "name": "Dr. Md. Hasanath Ali",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "Ph.D.(I.U)",
+            "MBS",
+            "BBS (Hons), I.U."
+        ],
+        "contact_no": "01712884977",
+        "email": "drhasnat@yahoo.com"
+    },
+    {
+        "name": "Mr. Md. Shariful Islam",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "PhD (RU)",
+            "M.Phil. (R.U.)",
+            "M.Sc (Sweden)",
+            "MBA",
+            "B.B.S (Hons), R.U."
+        ],
+        "contact_no": "01718878740",
+        "email": "sharifjibs@gmail.com"
+    },
+    {
+        "name": "Dr. M. Golam Arif",
+        "image": "www.imagbb.com",
+        "designation": "Professor",
+        "qualifications": [
+            "Ph.D. (R.U.)",
+            "M.Sc.",
+            "B.Sc. (Hons), R.U."
+        ],
+        "contact_no": "01712164034",
+        "email": "mgarif_iba_ru@yahoo.com"
+    },
+    {
+        "name": "Mr. Muhammad Atiqul Islam",
+        "image": "www.imagbb.com",
+        "designation": "Associate Professor",
+        "qualifications": [
+            "MBA",
+            "BBS (Hons), R.U."
+        ],
+        "contact_no": "01712147920",
+        "email": "maties_iba@yahoo.com"
+    },
+    {
+        "name": "Mr. Mrinal Kanti Paul",
+        "image": "www.imagbb.com",
+        "designation": "Assistant Professor",
+        "qualifications": [
+            "MBA",
+            "BBA (Hons), R.U."
+        ],
+        "contact_no": "01724042900",
+        "email": "mkantipaul@yahoo.com"
+    },
+    {
+        "name": "Mir Mokaddesh Ali",
+        "image": "www.imagbb.com",
+        "designation": "Assistant Professor",
+        "qualifications": [
+            "MBA",
+            "BBA (R.U.)"
+        ],
+        "contact_no": "01722186401",
+        "email": "riponru01@gmail.com"
+    },
+    {
+        "name": "Md. Anum Shahriar Rabbi",
+        "image": "www.imagbb.com",
+        "designation": "Assistant Professor",
+        "qualifications": [
+            "MBA (HRM)",
+            "BBA (Management Studies), R.U."
+        ],
+        "contact_no": "01737940697",
+        "email": [
+            "shahriar_rabbi@ru.ac.bd",
+            "sr.mgts.ru@gmail.com"
+        ]
+    },
+    {
+        "name": "Md. Julhaz Hossain",
+        "image": "www.imagbb.com",
+        "designation": "Assistant Professor",
+        "qualifications": [
+            "Master of Agribusiness Management (Thailand)",
+            "Summer Program (Japan)",
+            "MBA",
+            "BBA (R.U.)"
+        ],
+        "contact_no": "01719-403342",
+        "email": "julhaz_iba@ru.ac.bd"
+    },
+    {
+        "name": "A.T.M. Shahed Pervez",
+        "image": "www.imagbb.com",
+        "designation": "Lecturer",
+        "qualifications": [
+            "MBA",
+            "BBA (R.U.)"
+        ],
+        "contact_no": "01717657712",
+        "email": "shahed.ru.bd@gmail.com"
+    }
+]

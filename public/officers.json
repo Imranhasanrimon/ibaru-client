@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Mr. Md. Zahurul Islam",
+        "image": "https://i.ibb.co.com/pBjFcVPf/Zahurul-Islam.jpg",
+        "designation": "Secretary (in-charge)",
+        "qualifications": [
+            "MA",
+            "BA (Hons.) Economics, R.U."
+        ],
+        "contact_no": "01914327237",
+        "email": "zahurulibaru@gmail.com"
+    },
+    {
+        "name": "Mr. A.T.M. Tauhidur Rahman",
+        "image": "https://i.ibb.co.com/WpDjPzGp/Tauhidur-Rahman.jpg",
+        "designation": "Computer Operation Supervisor",
+        "qualifications": [
+            "MSS",
+            "BSS (Hons.) Social Work, R.U.",
+            "DISM, Aptech"
+        ],
+        "contact_no": "01911970332",
+        "email": "ibataher@gmail.com"
+    },
+    {
+        "name": "Mr. Sarwar Shahin",
+        "image": "https://i.ibb.co.com/mVchs2Xm/Sarwar-Shahin.jpg",
+        "designation": "Assistant Registrar",
+        "qualifications": [
+            "MBA",
+            "BBA (Hons.) Accounting, R.U."
+        ],
+        "contact_no": "01912112459",
+        "email": "shahiniba@gmail.com"
+    },
+    {
+        "name": "Miss Mst. Rehana Parvin",
+        "image": "https://i.ibb.co.com/xKMQSHfx/Rehana-Parvin.jpg",
+        "designation": "Section Officer",
+        "qualifications": [
+            "BA (Pass), Open University"
+        ],
+        "contact_no": "01914765973",
+        "email": "noemailiba@gmail.com"
+    }
+]

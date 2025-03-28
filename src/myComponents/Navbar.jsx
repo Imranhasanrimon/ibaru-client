@@ -28,7 +28,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Telescope, Focus, History, Crosshair, Mail } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import useAuth from "@/hooks/useAuth";
 
@@ -93,21 +93,31 @@ const Navbar = () => {
         <MenubarMenu>
             <MenubarTrigger>View</MenubarTrigger>
             <MenubarContent>
-                <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-                <MenubarCheckboxItem checked>
-                    Always Show Full URLs
-                </MenubarCheckboxItem>
-                <MenubarSeparator />
-                <MenubarItem className="cursor-pointer" inset>
-                    Reload <MenubarShortcut>⌘R</MenubarShortcut>
-                </MenubarItem>
-                <MenubarItem className="cursor-pointer" disabled inset>
-                    Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-                </MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem className="cursor-pointer" inset>Toggle Fullscreen</MenubarItem>
-                <MenubarSeparator />
-                <MenubarItem className="cursor-pointer" inset>Hide Sidebar</MenubarItem>
+                <Link to="/faculties">
+                    <MenubarItem className="cursor-pointer" >
+                        Faculties <MenubarShortcut><Users /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link to="/officers-and-staffs">
+                    <MenubarItem className="cursor-pointer" >
+                        Offiers and Staffs <MenubarShortcut><UserRound /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link to="/mission">
+                    <MenubarItem className="cursor-pointer" >
+                        Mission <MenubarShortcut><Focus /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link to="/goal">
+                    <MenubarItem className="cursor-pointer" >
+                        Goal <MenubarShortcut><Crosshair /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
+                <Link to="/message-of-director">
+                    <MenubarItem className="cursor-pointer" >
+                        Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
+                    </MenubarItem>
+                </Link>
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>

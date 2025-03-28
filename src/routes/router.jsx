@@ -18,6 +18,7 @@ import MBAEvening from "@/pages/admission/MBAEvening";
 import MPhil from "@/pages/admission/MPhil";
 import MBAExecutive from "@/pages/admission/MBAExecutive";
 import PHD from "@/pages/admission/PHD";
+import OfficersAndStaffs from "@/pages/view/OfficersAndStaffs";
 
 export const router = createBrowserRouter([
     {
@@ -75,6 +76,16 @@ export const router = createBrowserRouter([
                 path: "admission-phd",
                 element: <PHD />
             },
+            //view
+            {
+                path: "officers-and-staffs",
+                element: <OfficersAndStaffs />
+            },
+            {
+                path: "faculties",
+                element: <h1>faculties</h1>
+            },
+
         ]
     },
     {
