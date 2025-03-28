@@ -14,6 +14,7 @@ import Goal from "@/pages/aboutUs/Goal";
 import MessageOfDirector from "@/pages/aboutUs/MessageOfDirector";
 import BBA from "@/pages/admission/BBA";
 import MBA from "@/pages/admission/MBA";
+import MBAEvening from "@/pages/admission/MBAEvening";
 
 export const router = createBrowserRouter([
     {
@@ -57,7 +58,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "admission-mba-evening",
-                element: <MessageOfDirector />
+                element: <MBAEvening />
             },
             {
                 path: "admission-mba-executive",
