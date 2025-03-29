@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 
 const Faculties = () => {
     const [faculties, setFaculties] = useState([]);
-    console.log(faculties);
 
     useEffect(() => {
         fetch("/faculties.json")
@@ -19,7 +18,8 @@ const Faculties = () => {
             {faculties.map((faculty, index) => (
                 <Card key={index} className="shadow-lg p-4 rounded-2xl">
                     <CardContent className="flex flex-col items-center text-center">
-                        <Avatar className="w-24 h-24 rounded-full" src={faculty.image} alt={faculty.name} />
+                        {/* <Avatar className="w-24 h-24 rounded-full" src={faculty.image} alt={faculty.name} /> */}
+                        <img className="w-24 h-24 rounded-full" src={faculty.image} alt="" />
                         <h3 className="text-xl font-semibold mt-4">{faculty.name}</h3>
                         <p className="text-gray-500">{faculty.designation}</p>
                         <ul className="mt-2 text-sm text-gray-600">
