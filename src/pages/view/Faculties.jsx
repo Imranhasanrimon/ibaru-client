@@ -19,7 +19,7 @@ const Faculties = () => {
                 <Card key={index} className="shadow-lg p-4 rounded-2xl">
                     <CardContent className="flex flex-col items-center text-center">
                         {/* <Avatar className="w-23 h-23 rounded-full" src={faculty.image} alt={faculty.name} /> */}
-                        <img className="w-23 h-23 rounded-full" src={faculty.image} alt="" />
+                        <img className="w-23 h-23 rounded-full" src={faculty.image} alt={faculty.name} />
                         <h3 className="text-xl font-semibold mt-4">{faculty.name}</h3>
                         <p className="text-gray-500">{faculty.designation}</p>
                         <ul className="mt-2 text-sm text-gray-600">
