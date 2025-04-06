@@ -20,6 +20,7 @@ import MBAExecutive from "@/pages/admission/MBAExecutive";
 import PHD from "@/pages/admission/PHD";
 import OfficersAndStaffs from "@/pages/view/OfficersAndStaffs";
 import Faculties from "@/pages/view/Faculties";
+import MyAccount from "@/pages/dashboard/myAccount/MyAccount";
 
 export const router = createBrowserRouter([
     {
@@ -107,7 +108,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "my-account",
-                element: <h1>my account</h1>
+                element: <MyAccount />
             },
             {
                 path: "my-fees",
