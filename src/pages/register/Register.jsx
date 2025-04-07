@@ -32,6 +32,7 @@ const Register = ({
         const userInfo = {
             studentId: email,
             registration: password,
+            name: "No Name",
             session: `${session - 1}-${session}`,
             batch,
             image
