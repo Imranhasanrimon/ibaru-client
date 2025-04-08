@@ -10,13 +10,14 @@ import cover from "@/assets/buildings/cover.jpg"
 const MyAccount = () => {
     const { user } = useAuth();
 
-    const { data: studentInfo, isLoading } = useQuery({
+    const { data: studentInfo = {}, isLoading } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
-            const data = await axiosInstance(`/users/aUser/${getStudentId(user?.email)}`);
-            return data?.data;
+            const res = await axiosInstance(`/users/aUser/${getStudentId(user?.email)}`);
+            return res?.data;
         }
     });
+    console.log(studentInfo);
     const { name, studentId, registration, session, batch, image, } = studentInfo;
 
     if (isLoading) return <LoadingSpinner />

@@ -1,3 +1,4 @@
+import { createBrowserRouter } from "react-router-dom";
 import Page from "@/pages/dashboard/page";
 import MainLayout from "@/layouts/MainLayout";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
@@ -5,7 +6,6 @@ import ErrorPage from "@/pages/error/ErrorPage";
 import Home from "@/pages/home/Home";
 import Login from "@/pages/login/Login";
 import Register from "@/pages/register/Register";
-import { createBrowserRouter } from "react-router-dom";
 import DefaultPage from "@/pages/dashboard/DefaultPage";
 import History from "@/pages/aboutUs/History";
 import Vision from "@/pages/aboutUs/Vision";
@@ -21,6 +21,7 @@ import PHD from "@/pages/admission/PHD";
 import OfficersAndStaffs from "@/pages/view/OfficersAndStaffs";
 import Faculties from "@/pages/view/Faculties";
 import MyAccount from "@/pages/dashboard/myAccount/MyAccount";
+import Feeds from "@/pages/feeds/Feeds";
 
 export const router = createBrowserRouter([
     {
@@ -86,6 +87,11 @@ export const router = createBrowserRouter([
             {
                 path: "faculties",
                 element: <Faculties />
+            },
+            //news feeds
+            {
+                path: "feeds",
+                element: <Feeds />
             },
 
         ]

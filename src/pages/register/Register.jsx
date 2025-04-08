@@ -24,6 +24,7 @@ const Register = ({
 
     const onSubmit = async (data) => {
         const { email, password } = data;
+        const name = "No Name"
         const finalEmail = email + '@gmail.com';
         const session = email.slice(0, 2);
         const batch = session - 15;
@@ -32,7 +33,7 @@ const Register = ({
         const userInfo = {
             studentId: email,
             registration: password,
-            name: "No Name",
+            name,
             session: `${session - 1}-${session}`,
             batch,
             image
@@ -50,7 +51,7 @@ const Register = ({
 
         try {
             await createUser(finalEmail, password);
-            await updateUserProfile(image);
+            await updateUserProfile(name, image);
             await axiosInstance.post('/users/create', userInfo);
             reset();
             toast("Registration Successful!", {

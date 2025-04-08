@@ -28,7 +28,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import useAuth from "@/hooks/useAuth";
 
@@ -38,6 +38,11 @@ const Navbar = () => {
     const { user } = useAuth();
     const menu = <>
         <MenubarMenu>
+            <Link to="/">
+                <MenubarTrigger className="cursor-pointer"><Home /></MenubarTrigger>
+            </Link>
+        </MenubarMenu>
+        <MenubarMenu >
             <MenubarTrigger>About Us</MenubarTrigger>
             <MenubarContent>
                 <Link to="/history">
@@ -133,6 +138,11 @@ const Navbar = () => {
                 <MenubarSeparator />
                 <MenubarItem className="cursor-pointer" inset>Add Profile...</MenubarItem>
             </MenubarContent>
+        </MenubarMenu>
+        <MenubarMenu>
+            <Link to="/feeds">
+                <MenubarTrigger className="cursor-pointer"><Newspaper /></MenubarTrigger>
+            </Link>
         </MenubarMenu>
     </>
     return (
