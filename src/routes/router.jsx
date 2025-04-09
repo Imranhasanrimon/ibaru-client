@@ -134,6 +134,10 @@ export const router = createBrowserRouter([
                 path: "my-all-posts/:id",
                 element: <MyAllPosts />
             },
+            {
+                path: "our-batch",
+                element: <h1>our batch</h1>
+            },
         ]
     },
     //delete

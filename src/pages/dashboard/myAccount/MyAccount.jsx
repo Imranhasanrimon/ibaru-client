@@ -8,11 +8,12 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import cover from "@/assets/buildings/cover.jpg"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import EditProfileModal from "./EditProfileModal";
 
 const MyAccount = () => {
     const { user, loading } = useAuth();
 
-    const { data: studentInfo = {}, isLoading } = useQuery({
+    const { data: studentInfo = {}, isLoading, refetch } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
             const res = await axiosInstance(`/users/aUser/${getStudentId(user?.email)}`);
@@ -23,25 +24,28 @@ const MyAccount = () => {
 
     if (isLoading || loading) return <LoadingSpinner />
     return (
-        <div className="sm:w-lg lg:w-2xl mx-auto p-4">
-            <Card className="rounded-2xl shadow-md py-4 sm:py-6">
+        <div className="sm:w-lg lg:w-2xl w-full mx-auto p-4">
+            <Card className="rounded-2xl shadow-md py-4">
                 <CardContent className="px-4">
                     <div className="relative">
                         <img className="rounded-xl h-60 sm:h-64 lg:h-96 object-cover w-full" src={cover} alt="cover image" />
 
-                        <div className="flex items-end gap-4 p-4 absolute -bottom-18" >
-                            <Avatar className="w-24 h-24 border-2 border-black">
-                                <AvatarImage src={image} alt={studentId} />
-                                <AvatarFallback>
-                                    {studentId.slice(-3)}
-                                </AvatarFallback>
-                            </Avatar>
-                            <div>
-                                <h2 className="text-lg font-semibold">{name}</h2>
-                                <p className="text-muted-foreground text-sm">
-                                    {studentId}
-                                </p>
+                        <div className="flex justify-between items-end w-full p-4 absolute -bottom-18" >
+                            <div className="flex items-end gap-4">
+                                <Avatar className="w-24 h-24 border-2 border-black">
+                                    <AvatarImage src={image} alt={studentId} />
+                                    <AvatarFallback>
+                                        {studentId.slice(-3)}
+                                    </AvatarFallback>
+                                </Avatar>
+                                <div>
+                                    <h2 className="text-lg font-semibold">{name}</h2>
+                                    <p className="text-muted-foreground text-sm">
+                                        {studentId}
+                                    </p>
+                                </div>
                             </div>
+                            <EditProfileModal studentInfo={studentInfo} refetch={refetch} />
                         </div>
 
                     </div>

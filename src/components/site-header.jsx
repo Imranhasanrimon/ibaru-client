@@ -18,6 +18,8 @@ export function SiteHeader() {
       setHeadingTitle("My Result")
     } else if (path === "my-all-posts") {
       setHeadingTitle("My Posts")
+    } else if (path === "our-batch") {
+      setHeadingTitle("Our Batch")
     } else {
       setHeadingTitle("Default dashboard")
     }

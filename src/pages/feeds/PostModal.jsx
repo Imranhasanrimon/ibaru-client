@@ -79,7 +79,7 @@ const PostModal = ({ refetch }) => {
                         </Avatar>
                         <Input
                             className="rounded-full"
-                            placeholder={`What's on your mind, ${user?.displayName}?`}
+                            placeholder={`What's on your mind, ${user?.displayName || 'Guest'}?`}
                             readOnly
                         />
                     </div>
@@ -118,7 +118,7 @@ const PostModal = ({ refetch }) => {
                             </Avatar>
                             <div>
                                 <DialogTitle>{user?.displayName}</DialogTitle>
-                                <DialogDescription>{getStudentId(user?.email)}</DialogDescription>
+                                <DialogDescription>{user && getStudentId(user?.email)}</DialogDescription>
                             </div>
                         </div>
                     </DialogHeader>

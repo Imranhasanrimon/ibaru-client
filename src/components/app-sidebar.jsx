@@ -33,17 +33,19 @@ import {
 } from "@/components/ui/sidebar"
 import useAuth from "@/hooks/useAuth"
 import { getStudentId } from "@/utils"
+import LoadingSpinner from "@/myComponents/LoadingSpinner"
 
 
 export function AppSidebar({
   ...props
 }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return <LoadingSpinner />
   const data = {
     user: {
-      name: "No Name",
-      email: user?.email.split("@")[0],
-      avatar: user?.photoURL,
+      name: user && user.displayName,
+      email: user && getStudentId(user?.email),
+      avatar: user && user?.photoURL,
     },
     navMain: [
       {
@@ -53,7 +55,7 @@ export function AppSidebar({
       },
       {
         title: "My Posts",
-        url: `/dashboard/my-all-posts/${getStudentId(user.email)}`,
+        url: `/dashboard/my-all-posts/${user && getStudentId(user?.email)}`,
         icon: IconNews,
       },
       {
@@ -72,8 +74,8 @@ export function AppSidebar({
         icon: IconFolder,
       },
       {
-        title: "Team",
-        url: "#",
+        title: "Our Batch",
+        url: "/dashboard/our-batch",
         icon: IconUsers,
       },
     ],
@@ -160,6 +162,7 @@ export function AppSidebar({
       },
     ],
   }
+  if (loading) return <LoadingSpinner />
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>

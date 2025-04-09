@@ -1,7 +1,15 @@
 import { Facebook, Twitter, Instagram } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 const Footer = () => {
+    const { pathname } = useLocation();
+    const [footerStatus, setFooterStatus] = useState(pathname.includes("feeds"))
+    useEffect(() => {
+        setFooterStatus(pathname.includes("feeds"))
+    }, [pathname]);
+
     return (
-        <footer className="bg-card border">
+        <footer className={`bg-card border ${footerStatus ? "hidden" : "block"}`}>
             <div className="px-6 py-2 flex flex-col md:flex-row justify-between items-center">
                 {/* Logo & Text */}
                 <div className="text-center md:text-left mb-4 md:mb-0">
