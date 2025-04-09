@@ -1,24 +1,21 @@
 import useAxiosSecure from "@/hooks/useAxiosSecure";
-import PostModal from "./PostModal";
-import { useQuery } from "@tanstack/react-query";
-import PostCard from "./PostCard";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
-
-
-
-const Feeds = () => {
+import PostCard from "@/pages/feeds/PostCard";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+const StudentFeeds = () => {
+    const { id } = useParams();
     const axiosSecure = useAxiosSecure();
-    const { data: posts = [], refetch, isLoading } = useQuery({
+    const { data: posts = [], isLoading } = useQuery({
         queryKey: ["posts"],
         queryFn: async () => {
-            const res = await axiosSecure("/posts/allPosts");
+            const res = await axiosSecure(`/posts/allPosts/${id}`);
             return res.data;
         }
     })
 
     if (isLoading) return <LoadingSpinner />
     return (
-
         <div className="max-w-2xl mx-auto p-4 relative">
             {/* Left Sidebar */}
             <aside className="hidden lg:block top-16 left-0  h-screen overflow-y-auto border-r px-4 fixed w-[200px] xl:w-[330px] 2xl:w-[450px]">
@@ -27,11 +24,9 @@ const Feeds = () => {
             </aside>
 
             {/* Main Content */}
-            <main >
-                <PostModal refetch={refetch} />
-                <div className="mt-4 grid  mx-auto gap-4">
-                    {posts.map(post => <PostCard key={post._id} post={post}></PostCard>)}
-                </div>
+            <main className="grid  mx-auto gap-4">
+                {posts.length === 0 && <div className="min-h-[400px] flex items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3></div>}
+                {posts.map(post => <PostCard key={post._id} post={post}></PostCard>)}
             </main>
 
             {/* Right Sidebar */}
@@ -40,7 +35,8 @@ const Feeds = () => {
                 {/* Add your sidebar content here */}
             </aside>
         </div>
-    );
+    )
+
 };
 
-export default Feeds;
+export default StudentFeeds;

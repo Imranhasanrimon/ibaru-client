@@ -19,14 +19,12 @@ const MyAllPosts = () => {
 
     if (isLoading) return <LoadingSpinner />
     return (
-        <div>
-            <main >
-                <PostModal refetch={refetch} />
-                <div className="mt-4 grid  mx-auto gap-4">
-                    {posts.map(post => <MyPostCard key={post._id} post={post}></MyPostCard>)}
-                </div>
-            </main>
-        </div>
+        <main className="p-4">
+            <PostModal refetch={refetch} />
+            <div className="mt-4 grid  mx-auto gap-4">
+                {posts.map(post => <MyPostCard key={post._id} post={post}></MyPostCard>)}
+            </div>
+        </main>
     );
 };
 

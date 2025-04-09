@@ -24,6 +24,7 @@ import MyAccount from "@/pages/dashboard/myAccount/MyAccount";
 import Feeds from "@/pages/feeds/Feeds";
 import StudentProfile from "@/pages/studentProfile/StudentProfile";
 import MyAllPosts from "@/pages/dashboard/myAccount/MyAllPosts";
+import StudentFeeds from "@/pages/feeds/StudentFeeds";
 
 export const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ export const router = createBrowserRouter([
             {
                 path: "feeds",
                 element: <Feeds />
+            },
+            {
+                path: "all-feeds/:id",
+                element: <StudentFeeds />
             },
             {
                 path: "student-profile/:id",
