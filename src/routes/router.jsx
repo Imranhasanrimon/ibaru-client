@@ -22,6 +22,8 @@ import OfficersAndStaffs from "@/pages/view/OfficersAndStaffs";
 import Faculties from "@/pages/view/Faculties";
 import MyAccount from "@/pages/dashboard/myAccount/MyAccount";
 import Feeds from "@/pages/feeds/Feeds";
+import StudentProfile from "@/pages/studentProfile/StudentProfile";
+import MyAllPosts from "@/pages/dashboard/myAccount/MyAllPosts";
 
 export const router = createBrowserRouter([
     {
@@ -93,6 +95,10 @@ export const router = createBrowserRouter([
                 path: "feeds",
                 element: <Feeds />
             },
+            {
+                path: "student-profile/:id",
+                element: <StudentProfile />
+            },
 
         ]
     },
@@ -123,6 +129,10 @@ export const router = createBrowserRouter([
             {
                 path: "my-result",
                 element: <h1>my result</h1>
+            },
+            {
+                path: "my-all-posts/:id",
+                element: <MyAllPosts />
             },
         ]
     },

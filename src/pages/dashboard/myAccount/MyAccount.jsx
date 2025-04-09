@@ -6,9 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import cover from "@/assets/buildings/cover.jpg"
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const MyAccount = () => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
 
     const { data: studentInfo = {}, isLoading } = useQuery({
         queryKey: ["user"],
@@ -17,14 +19,13 @@ const MyAccount = () => {
             return res?.data;
         }
     });
-    console.log(studentInfo);
     const { name, studentId, registration, session, batch, image, } = studentInfo;
 
-    if (isLoading) return <LoadingSpinner />
+    if (isLoading || loading) return <LoadingSpinner />
     return (
-        <div className="sm:w-lg lg:w-2xl mx-auto p-6">
+        <div className="sm:w-lg lg:w-2xl mx-auto p-4">
             <Card className="rounded-2xl shadow-md py-4 sm:py-6">
-                <CardContent className="px-4 sm:px-6">
+                <CardContent className="px-4">
                     <div className="relative">
                         <img className="rounded-xl h-60 sm:h-64 lg:h-96 object-cover w-full" src={cover} alt="cover image" />
 
@@ -49,7 +50,9 @@ const MyAccount = () => {
                         <p><span className="font-medium">Batch:</span> {batch}<sup>{batch == 1 ? "st" : batch == 2 ? "nd" : batch == 3 ? "rd" : "th"}</sup></p>
                         <p><span className="font-medium">Session:</span> {session}</p>
                         <p><span className="font-medium">Registration:</span> {registration}</p>
+                        <Link to={`/dashboard/my-all-posts/${studentId}`}><Button variant="outline" className="cursor-pointer">My Posts</Button></Link>
                     </div>
+
 
                 </CardContent>
             </Card>

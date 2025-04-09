@@ -16,6 +16,8 @@ export function SiteHeader() {
       setHeadingTitle("My Fees")
     } else if (path === "my-result") {
       setHeadingTitle("My Result")
+    } else if (path === "my-all-posts") {
+      setHeadingTitle("My Posts")
     } else {
       setHeadingTitle("Default dashboard")
     }

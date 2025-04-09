@@ -26,13 +26,13 @@ import {
 import { Link } from "react-router-dom";
 
 
-const PostCard = ({ post }) => {
+const MyPostCard = ({ post }) => {
     const { postBody, studentId, userInfo } = post;
 
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
             <div className="flex flex-row items-center gap-4 relative">
-                <Link to={`/student-profile/${studentId}`} className="flex flex-row items-center gap-4 relative">
+                <Link to={`/dashboard/my-account`} className="flex flex-row items-center gap-4 relative">
                     <Avatar>
                         <AvatarImage src={userInfo?.image} alt="User Image" />
                         <AvatarFallback>{userInfo?.name?.charAt(0)}</AvatarFallback>
@@ -53,7 +53,7 @@ const PostCard = ({ post }) => {
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
+                            {/* <DropdownMenuItem>
                                 Profile
                                 <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
                             </DropdownMenuItem>
@@ -68,23 +68,11 @@ const PostCard = ({ post }) => {
                             <DropdownMenuItem>
                                 Keyboard shortcuts
                                 <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                            </DropdownMenuItem>
+                            </DropdownMenuItem> */}
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
                             <DropdownMenuItem>Team</DropdownMenuItem>
-                            <DropdownMenuSub>
-                                <DropdownMenuSubTrigger>Report Post</DropdownMenuSubTrigger>
-                                <DropdownMenuPortal>
-                                    <DropdownMenuSubContent>
-                                        <DropdownMenuItem>Biased</DropdownMenuItem>
-                                        <DropdownMenuItem>Bullying</DropdownMenuItem>
-                                        <DropdownMenuItem>Misinformation </DropdownMenuItem>
-                                        <DropdownMenuItem>Scam </DropdownMenuItem>
-                                        <DropdownMenuItem>sexually explicit</DropdownMenuItem>
-                                    </DropdownMenuSubContent>
-                                </DropdownMenuPortal>
-                            </DropdownMenuSub>
                             <DropdownMenuItem>
                                 New Team
                                 <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
@@ -147,4 +135,4 @@ const PostCard = ({ post }) => {
     );
 };
 
-export default PostCard;
+export default MyPostCard;

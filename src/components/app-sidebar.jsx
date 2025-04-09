@@ -15,6 +15,7 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
+  IconNews
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -31,6 +32,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import useAuth from "@/hooks/useAuth"
+import { getStudentId } from "@/utils"
 
 
 export function AppSidebar({
@@ -48,6 +50,11 @@ export function AppSidebar({
         title: "Go Home",
         url: "/",
         icon: IconHome,
+      },
+      {
+        title: "My Posts",
+        url: `/dashboard/my-all-posts/${getStudentId(user.email)}`,
+        icon: IconNews,
       },
       {
         title: "Lifecycle",
