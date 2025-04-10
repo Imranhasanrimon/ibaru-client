@@ -9,6 +9,8 @@ import cover from "@/assets/buildings/cover.jpg"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import EditProfileModal from "./EditProfileModal";
+import { Camera } from "lucide-react";
+import ProfileImageChange from "./ProfileImageChange";
 
 const MyAccount = () => {
     const { user, loading } = useAuth();
@@ -22,6 +24,8 @@ const MyAccount = () => {
     });
     const { name, studentId, registration, session, batch, image, } = studentInfo;
 
+
+
     if (isLoading || loading) return <LoadingSpinner />
     return (
         <div className="sm:w-lg lg:w-2xl w-full mx-auto p-4">
@@ -29,17 +33,22 @@ const MyAccount = () => {
                 <CardContent className="px-4">
                     <div className="relative">
                         <img className="rounded-xl h-60 sm:h-64 lg:h-96 object-cover w-full" src={cover} alt="cover image" />
+                        <Camera className="absolute bottom-2 right-2 w-9 md:w-8 h-9 md:h-8 p-[5px] rounded-md bg-background border" />
 
-                        <div className="flex justify-between items-end w-full p-4 absolute -bottom-18" >
-                            <div className="flex items-end gap-4">
-                                <Avatar className="w-24 h-24 border-2 border-black">
-                                    <AvatarImage src={image} alt={studentId} />
-                                    <AvatarFallback>
-                                        {studentId.slice(-3)}
-                                    </AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <h2 className="text-lg font-semibold">{name}</h2>
+                        <div className="flex flex-col md:flex-row items-center md:justify-between md:items-end w-full p-4 absolute -bottom-40 md:-bottom-18" >
+                            <div className="flex flex-col md:flex-row md:items-end gap-4">
+                                <div className="relative">
+                                    <Avatar className="w-32 md:w-24 h-32 md:h-24 border-2 ">
+                                        <AvatarImage src={image} alt={studentId} />
+                                        <AvatarFallback>
+                                            {studentId && studentId.slice(-3)}
+                                        </AvatarFallback>
+                                    </Avatar>
+
+                                    <ProfileImageChange refetch={refetch} />
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h2 className="text-xl md:text-lg -mt-2 md:mt-0 font-semibold">{name}</h2>
                                     <p className="text-muted-foreground text-sm">
                                         {studentId}
                                     </p>
@@ -50,7 +59,7 @@ const MyAccount = () => {
 
                     </div>
 
-                    <div className="mt-20 space-y-2 text-sm p-4">
+                    <div className="mt-40 md:mt-20 space-y-2 text-sm p-4">
                         <p><span className="font-medium">Batch:</span> {batch}<sup>{batch == 1 ? "st" : batch == 2 ? "nd" : batch == 3 ? "rd" : "th"}</sup></p>
                         <p><span className="font-medium">Session:</span> {session}</p>
                         <p><span className="font-medium">Registration:</span> {registration}</p>

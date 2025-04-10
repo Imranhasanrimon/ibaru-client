@@ -23,6 +23,7 @@ import useAuth from "@/hooks/useAuth";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 
 const EditProfileModal = ({ studentInfo, refetch }) => {
@@ -37,11 +38,18 @@ const EditProfileModal = ({ studentInfo, refetch }) => {
         refetch()
         reset()
         setOpen(false)
+        toast("Successful!", {
+            description: "Your profile info has been updated.",
+            action: {
+                label: "Okay",
+                // onClick: () => navigate("/dashboard")
+            },
+        });
     }
     return (
         <Dialog open={open} onOpenChange={setOpen} className="p-0">
             <DialogTrigger asChild>
-                <Button variant="outline">Edit Profile</Button>
+                <Button variant="outline" className="w-full md:w-auto mt-3 md:mt-0 cursor-pointer">Edit Profile</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px] max-h-[calc(100vh-36px)] overflow-y-auto">
                 <form onSubmit={handleSubmit(onSubmit)}>
