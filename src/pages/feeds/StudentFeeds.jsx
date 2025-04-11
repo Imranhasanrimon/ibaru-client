@@ -1,9 +1,11 @@
+import { Button } from "@/components/ui/button";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import PostCard from "@/pages/feeds/PostCard";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const StudentFeeds = () => {
+    const navigate = useNavigate()
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
     const { data: posts = [], isLoading } = useQuery({
@@ -25,7 +27,7 @@ const StudentFeeds = () => {
 
             {/* Main Content */}
             <main className="grid  mx-auto gap-4">
-                {posts.length === 0 && <div className="min-h-[400px] flex items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3></div>}
+                {posts.length === 0 && <div className="min-h-[400px] flex flex-col gap-4 items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3> <Button onClick={()=>navigate(-1)} variant="outline">Back</Button></div>}
                 {posts.map(post => <PostCard key={post._id} post={post}></PostCard>)}
             </main>
 

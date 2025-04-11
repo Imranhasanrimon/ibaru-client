@@ -9,8 +9,8 @@ import cover from "@/assets/buildings/cover.jpg"
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import EditProfileModal from "./EditProfileModal";
-import { Camera } from "lucide-react";
 import ProfileImageChange from "./ProfileImageChange";
+import CoverImageChange from "./CoverImageChange";
 
 const MyAccount = () => {
     const { user, loading } = useAuth();
@@ -22,7 +22,7 @@ const MyAccount = () => {
             return res?.data;
         }
     });
-    const { name, studentId, registration, session, batch, image, } = studentInfo;
+    const { name, studentId, registration, session, batch, image, coverImage, NID, birthDate, bloodGroup, district, email, fatherName, motherName, gender, hall, height, phoneNo, religion } = studentInfo;
 
 
 
@@ -32,13 +32,13 @@ const MyAccount = () => {
             <Card className="rounded-2xl shadow-md py-4">
                 <CardContent className="px-4">
                     <div className="relative">
-                        <img className="rounded-xl h-60 sm:h-64 lg:h-96 object-cover w-full" src={cover} alt="cover image" />
-                        <Camera className="absolute bottom-2 right-2 w-9 md:w-8 h-9 md:h-8 p-[5px] rounded-md bg-background border" />
+                        <img className="rounded-xl h-60 sm:h-64 lg:h-96 object-cover w-full" src={coverImage || cover} alt="cover image" />
+                        <CoverImageChange coverImage={coverImage} cover={cover} studentId={studentId} refetch={refetch} />
 
-                        <div className="flex flex-col md:flex-row items-center md:justify-between md:items-end w-full p-4 absolute -bottom-40 md:-bottom-18" >
-                            <div className="flex flex-col md:flex-row md:items-end gap-4">
+                        <div className="flex flex-col lg:flex-row items-center lg:justify-between lg:items-end w-full p-4 absolute -bottom-40 lg:-bottom-18" >
+                            <div className="flex flex-col items-center lg:flex-row lg:items-end gap-4">
                                 <div className="relative">
-                                    <Avatar className="w-32 md:w-24 h-32 md:h-24 border-2 ">
+                                    <Avatar className="w-32 lg:w-24 h-32 lg:h-24 border-2 ">
                                         <AvatarImage src={image} alt={studentId} />
                                         <AvatarFallback>
                                             {studentId && studentId.slice(-3)}
@@ -47,8 +47,8 @@ const MyAccount = () => {
 
                                     <ProfileImageChange refetch={refetch} />
                                 </div>
-                                <div className="text-center md:text-left">
-                                    <h2 className="text-xl md:text-lg -mt-2 md:mt-0 font-semibold">{name}</h2>
+                                <div className="text-center lg:text-left">
+                                    <h2 className="text-xl lg:text-lg -mt-2 lg:mt-0 font-semibold">{name}</h2>
                                     <p className="text-muted-foreground text-sm">
                                         {studentId}
                                     </p>
@@ -59,10 +59,50 @@ const MyAccount = () => {
 
                     </div>
 
-                    <div className="mt-40 md:mt-20 space-y-2 text-sm p-4">
-                        <p><span className="font-medium">Batch:</span> {batch}<sup>{batch == 1 ? "st" : batch == 2 ? "nd" : batch == 3 ? "rd" : "th"}</sup></p>
-                        <p><span className="font-medium">Session:</span> {session}</p>
-                        <p><span className="font-medium">Registration:</span> {registration}</p>
+                    <div className="mt-40 lg:mt-20 space-y-2 text-sm p-4">
+
+                        <div className="flex justify-between">
+                            <p><span className="font-medium">Reg. No:</span> {registration}</p>
+
+                            <p><span className="font-medium">NID:</span> {NID ? NID : "N/A"}</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <p><span className="font-medium">Batch:</span> {batch}<sup>{batch == 1 ? "st" : batch == 2 ? "nd" : batch == 3 ? "rd" : "th"}</sup></p>
+
+                            <p><span className="font-medium">Session:</span> {session}</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <p><span className="font-medium">Gender:</span> {gender ? gender : "N/A"}</p>
+
+                            <p><span className="font-medium">Height:</span> {height ? height : "N/A"}</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <p><span className="font-medium">District:</span> {district ? district : "N/A"}</p>
+                            <p><span className="font-medium">Religion:</span> {religion ? religion : "N/A"}</p>
+                        </div>
+
+                        <div className="flex justify-between">
+                            <p><span className="font-medium">Date of Birth:</span> {birthDate ? birthDate : "N/A"}</p>
+
+                            <p><span className="font-medium">Blood Group:</span> {bloodGroup ? bloodGroup : "N/A"}</p>
+                        </div>
+
+                        <p><span className="font-medium">Email:</span> {email ? email : "N/A"}</p>
+
+                        <p><span className="font-medium">Father's Name:</span> {fatherName ? fatherName : "N/A"}</p>
+
+                        <p><span className="font-medium">Mother's Name:</span> {motherName ? motherName : "N/A"}</p>
+
+                        <p><span className="font-medium">Hall:</span> {hall ? hall : "N/A"}</p>
+
+
+                        <p><span className="font-medium">Mobile No:</span> {phoneNo ? phoneNo : "N/A"}</p>
+
+
+
                         <Link to={`/dashboard/my-all-posts/${studentId}`}><Button variant="outline" className="cursor-pointer">My Posts</Button></Link>
                     </div>
 
