@@ -8,14 +8,13 @@ const StudentFeeds = () => {
     const navigate = useNavigate()
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
-    const { data: posts = [], isLoading } = useQuery({
+    const { data: posts = [], isLoading, } = useQuery({
         queryKey: ["posts"],
         queryFn: async () => {
             const res = await axiosSecure(`/posts/allPosts/${id}`);
             return res.data;
         }
     })
-
     if (isLoading) return <LoadingSpinner />
     return (
         <div className="max-w-2xl mx-auto p-4 relative">
@@ -27,8 +26,8 @@ const StudentFeeds = () => {
 
             {/* Main Content */}
             <main className="grid  mx-auto gap-4">
-                {posts.length === 0 && <div className="min-h-[400px] flex flex-col gap-4 items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3> <Button onClick={()=>navigate(-1)} variant="outline">Back</Button></div>}
-                {posts.map(post => <PostCard key={post._id} post={post}></PostCard>)}
+                {posts.length === 0 && <div className="min-h-[400px] flex flex-col gap-4 items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3> <Button onClick={() => navigate(-1)} variant="outline">Back</Button></div>}
+                {posts.map(post => <PostCard key={post._id} post={post} ></PostCard>)}
             </main>
 
             {/* Right Sidebar */}

@@ -162,7 +162,7 @@ const EditPostModal = ({ refetch, post }) => {
                     </div>
 
                     <DialogFooter>
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full cursor-pointer">
                             Done
                         </Button>
                     </DialogFooter>

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Angry, EllipsisVertical, Frown, Heart, ThumbsUp } from "lucide-react";
+import { Angry, EllipsisVertical, Frown, Heart, ThumbsUp, Trash } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
@@ -24,10 +24,30 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Link } from "react-router-dom";
+import useAuth from "@/hooks/useAuth";
+import { getStudentId } from "@/utils";
+import EditPostModal from "./EditPostModal";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
+import { toast } from "sonner";
 
 
-const PostCard = ({ post }) => {
-    const { postBody, studentId, userInfo } = post;
+const PostCard = ({ post, refetch }) => {
+    const { user } = useAuth();
+    const { postBody, studentId, userInfo, _id } = post;
+    const axiosSecure = useAxiosSecure()
+
+    const handleDeletePost = async () => {
+        await axiosSecure.delete(`/posts/delete/${_id}`)
+        refetch()
+        toast("Successful!", {
+            description: "Your post  has been deleted.",
+            action: {
+                label: "Okay",
+                // onClick: () => navigate("/dashboard")
+            },
+        })
+    }
+
 
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
@@ -69,6 +89,13 @@ const PostCard = ({ post }) => {
                                 Keyboard shortcuts
                                 <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
                             </DropdownMenuItem>
+
+                            {user && getStudentId(user.email) === studentId && <>
+                                <EditPostModal post={post} refetch={refetch} /> <DropdownMenuItem onClick={handleDeletePost} className="cursor-pointer">
+                                    Delete Post
+                                    <DropdownMenuShortcut><Trash className="text-red-500" /></DropdownMenuShortcut>
+                                </DropdownMenuItem>
+                            </>}
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>

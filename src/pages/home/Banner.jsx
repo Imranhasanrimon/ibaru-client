@@ -9,7 +9,7 @@ const Banner = () => {
             <Parallax
                 className="absolute inset-0"
                 style={{
-                    backgroundImage: `linear-gradient(to bottom,${theme === 'dark' ? " rgba(15, 23, 42,0.7), rgba(15, 23, 42, 0.4), rgba(15, 23, 42,0.7)" : " rgba(248, 250, 252,0.7), rgba(248, 250, 252, 0.0), rgba(248, 250, 252,0.5)"}), url(${imageUrl})`,
+                    backgroundImage: `linear-gradient(to bottom,${theme !== 'light' ? " rgba(15, 23, 42,0.7), rgba(15, 23, 42, 0.4), rgba(15, 23, 42,0.7)" : " rgba(248, 250, 252,0.7), rgba(248, 250, 252, 0.0), rgba(248, 250, 252,0.5)"}), url(${imageUrl})`,
                     backgroundSize: "cover",
                     backgroundPosition: "top",
                 }}

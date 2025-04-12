@@ -182,7 +182,7 @@ const PostModal = ({ refetch }) => {
                     </div>
 
                     <DialogFooter>
-                        <Button type="submit" className="w-full">
+                        <Button type="submit" className="w-full cursor-pointer">
                             Post
                         </Button>
                     </DialogFooter>

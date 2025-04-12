@@ -30,7 +30,7 @@ const Feeds = () => {
             <main >
                 <PostModal refetch={refetch} />
                 <div className="mt-4 grid  mx-auto gap-4">
-                    {posts.map(post => <PostCard key={post._id} post={post}></PostCard>)}
+                    {posts.map(post => <PostCard key={post._id} post={post} refetch={refetch}></PostCard>)}
                 </div>
             </main>
 
