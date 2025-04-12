@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Angry, EllipsisVertical, Frown, Heart, ThumbsUp } from "lucide-react";
+import { Angry, EllipsisVertical, Frown, Heart, ThumbsUp, Trash, FilePenLine } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
@@ -24,10 +24,27 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Link } from "react-router-dom";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
+import { toast } from "sonner";
+import EditPostModal from "@/pages/feeds/EditPostModal";
 
 
-const MyPostCard = ({ post }) => {
-    const { postBody, studentId, userInfo } = post;
+const MyPostCard = ({ post, refetch }) => {
+    const { postBody, studentId, userInfo, _id } = post;
+    const axiosSecure = useAxiosSecure()
+
+    const handleDeletePost = async () => {
+        await axiosSecure.delete(`/posts/delete/${_id}`)
+        refetch()
+        toast("Successful!", {
+            description: "Your post  has been deleted.",
+            action: {
+                label: "Okay",
+                // onClick: () => navigate("/dashboard")
+            },
+        })
+    }
+
 
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
@@ -73,10 +90,12 @@ const MyPostCard = ({ post }) => {
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
                             <DropdownMenuItem>Team</DropdownMenuItem>
-                            <DropdownMenuItem>
-                                New Team
-                                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+                            <DropdownMenuItem onClick={handleDeletePost} className="cursor-pointer">
+                                Delete Post
+                                <DropdownMenuShortcut><Trash className="text-red-500" /></DropdownMenuShortcut>
                             </DropdownMenuItem>
+
+                            <EditPostModal post={post} refetch={refetch} />
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>GitHub</DropdownMenuItem>

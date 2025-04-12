@@ -51,7 +51,7 @@ const EditProfileModal = ({ studentInfo, refetch }) => {
             <DialogTrigger asChild>
                 <Button variant="outline" className="w-full lg:w-auto mt-3 lg:mt-0 cursor-pointer">Edit Profile</Button>
             </DialogTrigger>
-            <DialogContent className=" max-h-[calc(100vh-36px)] overflow-y-auto p-4">
+            <DialogContent className="max-h-[calc(100vh-36px)] overflow-y-auto p-4 text-center">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <DialogHeader>
                         <DialogTitle>Edit Profile</DialogTitle>

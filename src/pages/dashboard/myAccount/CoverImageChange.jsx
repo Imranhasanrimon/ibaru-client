@@ -40,7 +40,7 @@ const CoverImageChange = ({ refetch, coverImage, cover, studentId }) => {
             <DialogTrigger asChild>
                 <Camera className="absolute bottom-2 right-2 w-9 md:w-8 h-9 md:h-8 p-[5px] rounded-md bg-background border cursor-pointer z-10" />
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[525px]">
+            <DialogContent className="sm:max-w-[525px] text-center">
                 <DialogHeader>
                     <DialogTitle>Edit Cover Image (Recommended)</DialogTitle>
                     <DialogDescription>

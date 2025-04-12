@@ -22,7 +22,7 @@ const MyAllPosts = () => {
         <main className="p-4">
             <PostModal refetch={refetch} />
             <div className="mt-4 grid  mx-auto gap-4">
-                {posts.map(post => <MyPostCard key={post._id} post={post}></MyPostCard>)}
+                {posts.map(post => <MyPostCard key={post._id} post={post} refetch={refetch}></MyPostCard>)}
             </div>
         </main>
     );

@@ -76,7 +76,7 @@ function DialogHeader({
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-2 text-center max-w-sm mx-auto", className)}
+      className={cn("flex flex-col gap-2  max-w-sm mx-auto", className)}
       {...props} />
   );
 }

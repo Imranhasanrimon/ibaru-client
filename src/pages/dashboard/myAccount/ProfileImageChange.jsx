@@ -45,7 +45,7 @@ const ProfileImageChange = ({ refetch }) => {
             <DialogTrigger asChild>
                 <Camera className="absolute z-20 bottom-3 -right-1 lg:-right-2 w-9 md:w-8 h-9 md:h-8 p-[5px] rounded-full bg-background border cursor-pointer" />
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[425px] text-center">
                 <DialogHeader>
                     <DialogTitle>Edit Profile Image (Recommended)</DialogTitle>
                     <DialogDescription>
