@@ -136,6 +136,15 @@
   .no-spinner {
     -moz-appearance: textfield;
   }
+
+  /* toast description color */
+  .text-custom-black {
+    color: black !important;
+  }
+
+  .text-custom-destructive {
+    color: var(--destructive) !important;
+  }
 }
 
 body {
