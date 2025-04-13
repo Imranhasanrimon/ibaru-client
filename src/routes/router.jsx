@@ -25,6 +25,7 @@ import Feeds from "@/pages/feeds/Feeds";
 import StudentProfile from "@/pages/studentProfile/StudentProfile";
 import MyAllPosts from "@/pages/dashboard/myAccount/MyAllPosts";
 import StudentFeeds from "@/pages/feeds/StudentFeeds";
+import Gallery from "@/pages/view/Gallery";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
             {
                 path: "faculties",
                 element: <Faculties />
+            },
+            {
+                path: "gallery",
+                element: <Gallery />
             },
             //news feeds
             {

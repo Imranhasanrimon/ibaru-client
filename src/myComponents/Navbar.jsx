@@ -28,10 +28,10 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper, Images } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import useAuth from "@/hooks/useAuth";
-
+import { getStudentId } from "@/utils";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -108,9 +108,9 @@ const Navbar = () => {
                         Offiers and Staffs <MenubarShortcut><UserRound /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link to="/mission">
+                <Link to="/gallery">
                     <MenubarItem className="cursor-pointer" >
-                        Mission <MenubarShortcut><Focus /></MenubarShortcut>
+                        Gallery <MenubarShortcut><Images /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
                 <Link to="/goal">
@@ -186,7 +186,7 @@ const Navbar = () => {
                             <TooltipTrigger asChild>
                                 <Avatar>
                                     <AvatarImage src={user?.photoURL} alt="Student's Image" />
-                                    <AvatarFallback>{user?.email}</AvatarFallback>
+                                    <AvatarFallback>{user && getStudentId(user?.email).slice(-2)}</AvatarFallback>
                                 </Avatar>
                             </TooltipTrigger>
                             <TooltipContent>
