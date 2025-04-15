@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Camera, UploadCloud } from "lucide-react"
+import { Camera, CircleEllipsis, UploadCloud } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "react-hook-form"
 import { getStudentId, imageUpload } from "@/utils"
@@ -111,7 +111,7 @@ const Gallery = () => {
             {/* Hero */}
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-8">
                 <img src={heroImg} className="object-cover w-full h-full" alt="Campus Banner" />
-                <div className="absolute inset-0 bg-black/20 bg-opacity-40 flex items-center justify-center text-white text-4xl font-bold">
+                <div className="absolute inset-0  flex items-center justify-center text-white text-4xl font-bold">
                     Campus Gallery 📸
                 </div>
             </div>
@@ -119,16 +119,21 @@ const Gallery = () => {
             {/* Tabs */}
             <div className="flex flex-col-reverse md:flex-row justify-between md:items-center gap-4 mb-6">
                 <Tabs defaultValue="All" onValueChange={setActiveTab}>
-                    <TabsList>
-                        <TabsTrigger value="All">All</TabsTrigger>
-                        <TabsTrigger value="Campus">Campus</TabsTrigger>
-                        <TabsTrigger value="Events">Events</TabsTrigger>
-                        <TabsTrigger value="Sports">Sports</TabsTrigger>
+                    <TabsList className="flex flex-wrap justify-start items-center h-auto">
+                        <TabsTrigger value="All" className="flex-none">All</TabsTrigger>
+                        <TabsTrigger value="Campus" className="flex-none">Campus</TabsTrigger>
+                        <TabsTrigger value="Events" className="flex-none">Events</TabsTrigger>
+                        <TabsTrigger value="Sports" className="flex-none">Sports</TabsTrigger>
+                        <TabsTrigger value="Cultural" className="flex-none">Cultural</TabsTrigger>
+                        {/* more */}
+                        <TabsTrigger value="Festivals" className="flex-none">Festivals</TabsTrigger>
+                        <TabsTrigger value="Library&Lab" className="flex-none">Library & Lab</TabsTrigger>
+                        <TabsTrigger value="Achievements" className="flex-none">Achievements</TabsTrigger>
+                        <TabsTrigger value="Volunteering" className="flex-none">Volunteering</TabsTrigger>
                     </TabsList>
                 </Tabs>
 
                 {/* Upload Button */}
-
                 <Dialog open={open} onOpenChange={setOpen}>
                     {user ? <DialogTrigger asChild>
                         <Button variant="outline" className="flex items-center gap-2 cursor-pointer">
@@ -152,7 +157,7 @@ const Gallery = () => {
 
                                 <label className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 pt-[6px] text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm cursor-pointer items-center gap-1 justify-center">
                                     <Camera className="w-5 h-5 -mt-1" />
-                                    Upload Image
+                                    Choose Image
                                     <input
                                         type="file"
                                         name="image"
@@ -186,6 +191,18 @@ const Gallery = () => {
                                             <SelectItem value="Cultural">
                                                 Cultural
                                             </SelectItem>
+                                            <SelectItem value="Festivals">
+                                                Festivals
+                                            </SelectItem>
+                                            <SelectItem value="Achievements">
+                                                Achievements
+                                            </SelectItem>
+                                            <SelectItem value="Library&Lab">
+                                                Library & Lab
+                                            </SelectItem>
+                                            <SelectItem value="Volunteering">
+                                                Volunteering
+                                            </SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>
@@ -207,14 +224,16 @@ const Gallery = () => {
                         onClick={() => setOpenImage(post)}
                     >
                         <img src={post.image} alt="Campus" className="w-full h-48 object-cover transition group-hover:scale-105 duration-300" />
-                        <div className="absolute inset-0 bg-black/30 group-hover:bg-opacity-30 transition" />
+                        <div className="absolute inset-0  group-hover:bg-opacity-30 transition" >
+                            <Button variant="secondary" className="absolute right-2 top-2  opacity-80 cursor-pointer h-6 w-6"><CircleEllipsis /></Button>
+                        </div>
                     </div>
                 ))}
             </div>
 
             {/* Image Dialog */}
             <Dialog open={!!openImage} onOpenChange={setOpenImage}>
-                <DialogContent className="max-w-3xl p-0 overflow-hidden bg-card">
+                <DialogContent className="max-w-3xl w-11/12 p-0 overflow-hidden bg-card">
                     <img src={openImage?.image} alt="Full View" className="w-full h-full object-contain" />
                     <div className="px-4 pb-4 space-y-2">
                         <Link to={`/${user && getStudentId(user.email) === openImage?.userInfo?.studentId ? "dashboard/my-account" : `student-profile/${openImage?.userInfo?.studentId}`}`} className="inline-flex items-center gap-4">
