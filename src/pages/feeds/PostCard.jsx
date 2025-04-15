@@ -52,7 +52,7 @@ const PostCard = ({ post, refetch }) => {
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
             <div className="flex flex-row items-center gap-4 relative">
-                <Link to={`/student-profile/${studentId}`} className="flex flex-row items-center gap-4 relative">
+                <Link to={`/${user && getStudentId(user.email) === studentId ? "dashboard/my-account" : `student-profile/${studentId}`}`} className="flex flex-row items-center gap-4 relative">
                     <Avatar>
                         <AvatarImage src={userInfo?.image} alt="User Image" />
                         <AvatarFallback>{userInfo?.name?.charAt(0)}</AvatarFallback>

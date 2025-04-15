@@ -1,5 +1,6 @@
 // src/pages/Gallery.jsx
 import { useState } from "react"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
     Dialog,
     DialogContent,
@@ -26,17 +27,14 @@ import { getStudentId, imageUpload } from "@/utils"
 import { toast } from "sonner"
 import useAuth from "@/hooks/useAuth"
 import useAxiosSecure from "@/hooks/useAxiosSecure"
-
-const images = [
-    { id: 1, url: "https://i.ibb.co.com/gFXjC8HN/netzwerkserver-herzstueck-infrastruktur.jpg", category: "Campus" },
-    { id: 2, url: "/gallery/event1.jpg", category: "Events" },
-    { id: 3, url: "/gallery/sports1.jpg", category: "Sports" },
-    // ...more images
-]
-
+import { useQuery } from "@tanstack/react-query"
+import { Link, useNavigate } from "react-router-dom"
+import LoadingSpinner from "@/myComponents/LoadingSpinner"
+import heroImg from "@/assets/buildings/edited.jpg"
 const Gallery = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     const [open, setOpen] = useState(false);
     const [openImage, setOpenImage] = useState(null)
     const [activeTab, setActiveTab] = useState("All")
@@ -45,8 +43,37 @@ const Gallery = () => {
         url: "",
     });
     const { register, handleSubmit, setValue, reset } = useForm();
+    const { data: galleryPosts = [], refetch, isLoading } = useQuery({
+        queryKey: ["galleryPosts"],
+        queryFn: async () => {
+            const res = await axiosSecure("/gallery/allPosts");
+            return res.data;
+        }
+    })
+
+    const handleOpenDialog = () => {
+        toast("Warning!", {
+            description: "Your're not a student of IBA. Please login then post.",
+            classNames: {
+                title: "text-custom-destructive"
+            },
+            action: {
+                label: "Login",
+                onClick: () => navigate("/login")
+            },
+        })
+    }
 
     const onSubmit = async (data) => {
+        const category = data.category
+
+        if (!category) return toast("Warning!", {
+            description: "Category is required.",
+            classNames: {
+                title: "text-custom-destructive"
+            }
+        })
+
         const image = uploadImage?.image && await imageUpload(uploadImage.image);
 
         if (!image) return toast("Warning!", {
@@ -59,13 +86,13 @@ const Gallery = () => {
         const postInfo = {
             ...data,
             image,
-            userId: user && getStudentId(user.email)
+            studentId: user && getStudentId(user.email)
         }
 
         await axiosSecure.post('/gallery/create', postInfo)
 
         reset()
-        // refetch()
+        refetch()
         setOpen(false)
         setUploadImage("")
         toast("Successful!", {
@@ -76,14 +103,15 @@ const Gallery = () => {
             },
         })
     }
+    const filteredImages = activeTab === "All" ? galleryPosts : galleryPosts.filter(post => post.category === activeTab)
 
-    const filteredImages = activeTab === "All" ? images : images.filter(img => img.category === activeTab)
+    if (isLoading) return <LoadingSpinner />
     return (
-        <div className="p-6 max-w-7xl mx-auto">
+        <div className="p-4 sm:p-6 max-w-7xl mx-auto">
             {/* Hero */}
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-8">
-                <img src="/gallery/hero-banner.jpg" className="object-cover w-full h-full" alt="Campus Banner" />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-4xl font-bold">
+                <img src={heroImg} className="object-cover w-full h-full" alt="Campus Banner" />
+                <div className="absolute inset-0 bg-black/20 bg-opacity-40 flex items-center justify-center text-white text-4xl font-bold">
                     Campus Gallery 📸
                 </div>
             </div>
@@ -102,18 +130,21 @@ const Gallery = () => {
                 {/* Upload Button */}
 
                 <Dialog open={open} onOpenChange={setOpen}>
-                    <DialogTrigger asChild>
-                        <Button variant="outline" className="flex items-center gap-2">
+                    {user ? <DialogTrigger asChild>
+                        <Button variant="outline" className="flex items-center gap-2 cursor-pointer">
                             <UploadCloud size={18} />
                             Upload Image
                         </Button>
-                    </DialogTrigger>
+                    </DialogTrigger> : <Button variant="outline" className="flex items-center gap-2 cursor-pointer" onClick={handleOpenDialog}>
+                        <UploadCloud size={18} />
+                        Upload Image
+                    </Button>}
                     <DialogContent className="sm:max-w-[425px]">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <DialogHeader className="text-center">
                                 <DialogTitle>Decorate Gallery</DialogTitle>
                                 <DialogDescription>
-                                    Make changes to your profile here. Click save when you're done.
+                                    Select a beautiful image with vibrant description.
                                 </DialogDescription>
                             </DialogHeader>
                             <div className="grid gap-4 py-4">
@@ -137,7 +168,7 @@ const Gallery = () => {
                                 <Textarea className="min-h-28 w-full" placeholder="Write something..."
                                     {...register("postBody")} />
 
-                                <Select defaultValue="" {...register("category")} onValueChange={(val) => setValue("category", val)}>
+                                <Select defaultValue="" {...register("category")} onValueChange={(val) => setValue("category", val)} >
                                     <SelectTrigger className="w-full">
                                         <SelectValue placeholder="Category" />
                                     </SelectTrigger>
@@ -169,24 +200,35 @@ const Gallery = () => {
 
             {/* Image Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {filteredImages.map((img) => (
+                {filteredImages.map((post) => (
                     <div
-                        key={img.id}
+                        key={post._id}
                         className="relative group overflow-hidden rounded-xl cursor-pointer"
-                        onClick={() => setOpenImage(img.url)}
+                        onClick={() => setOpenImage(post)}
                     >
-                        <img src={img.url} alt="Campus" className="w-full h-48 object-cover transition group-hover:scale-105 duration-300" />
+                        <img src={post.image} alt="Campus" className="w-full h-48 object-cover transition group-hover:scale-105 duration-300" />
                         <div className="absolute inset-0 bg-black/30 group-hover:bg-opacity-30 transition" />
                     </div>
                 ))}
             </div>
 
             {/* Image Dialog */}
-            <Dialog open={!!openImage} onOpenChange={() => setOpenImage(null)}>
-                <DialogContent className="max-w-3xl p-0 overflow-hidden">
-                    <img src={openImage} alt="Full View" className="w-full h-full object-contain" />
-                    <DialogTitle></DialogTitle>
-                    <DialogDescription>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur debitis nobis eum numquam veritatis dignissimos, ipsum magnam perspiciatis cupiditate! Ab.</DialogDescription>
+            <Dialog open={!!openImage} onOpenChange={setOpenImage}>
+                <DialogContent className="max-w-3xl p-0 overflow-hidden bg-card">
+                    <img src={openImage?.image} alt="Full View" className="w-full h-full object-contain" />
+                    <div className="px-4 pb-4 space-y-2">
+                        <Link to={`/${user && getStudentId(user.email) === openImage?.userInfo?.studentId ? "dashboard/my-account" : `student-profile/${openImage?.userInfo?.studentId}`}`} className="inline-flex items-center gap-4">
+                            <Avatar>
+                                <AvatarImage src={openImage?.userInfo?.image} alt="User Image" />
+                                <AvatarFallback>{openImage?.userInfo?.name?.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                                <DialogTitle className="text-base font-semibold">{openImage?.userInfo?.name || "Anonymous"}</DialogTitle>
+                                <p className="text-sm text-muted-foreground"> Batch: {openImage?.userInfo?.batch}<sup>th</sup></p>
+                            </div>
+                        </Link>
+                        <DialogDescription>{openImage?.postBody}</DialogDescription>
+                    </div>
                 </DialogContent>
             </Dialog>
         </div>
