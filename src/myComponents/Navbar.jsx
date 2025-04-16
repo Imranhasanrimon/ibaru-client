@@ -28,12 +28,13 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper, Images } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper, Images, GraduationCap } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import useAuth from "@/hooks/useAuth";
 import { getStudentId } from "@/utils";
 
 const Navbar = () => {
+    const [showMore, setShowMore] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const { user } = useAuth();
     const menu = <>
@@ -113,11 +114,82 @@ const Navbar = () => {
                         Gallery <MenubarShortcut><Images /></MenubarShortcut>
                     </MenubarItem>
                 </Link>
-                <Link to="/goal">
-                    <MenubarItem className="cursor-pointer" >
-                        Goal <MenubarShortcut><Crosshair /></MenubarShortcut>
-                    </MenubarItem>
-                </Link>
+
+                <MenubarSeparator />
+
+                {/* Batches */}
+                <MenubarSub >
+                    <MenubarSubTrigger > Batches </MenubarSubTrigger>
+                    <MenubarSubContent >
+                        <MenubarItem>Explore</MenubarItem>
+                        <MenubarSeparator />
+                        <Link to="/batches/9">
+                            <MenubarItem className="cursor-pointer" >
+                                9th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                            </MenubarItem>
+                        </Link>
+                        <Link to="/batches/9">
+                            <MenubarItem className="cursor-pointer" >
+                                8th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                            </MenubarItem>
+                        </Link>
+                        <Link to="/batches/7">
+                            <MenubarItem className="cursor-pointer" >
+                                7th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                            </MenubarItem>
+                        </Link>
+                        {/* Expandable extra batches */}
+                        {showMore && (
+                            <>
+                                <Link to="/batches/6">
+                                    <MenubarItem className="cursor-pointer">
+                                        6th <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                                <Link to="/batches/5">
+                                    <MenubarItem className="cursor-pointer">
+                                        5th <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                                <Link to="/batches/4">
+                                    <MenubarItem className="cursor-pointer">
+                                        4th <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                                <Link to="/batches/3">
+                                    <MenubarItem className="cursor-pointer">
+                                        3rd <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                                <Link to="/batches/2">
+                                    <MenubarItem className="cursor-pointer">
+                                        2nd <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                                <Link to="/batches/1">
+                                    <MenubarItem className="cursor-pointer">
+                                        1st <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                                    </MenubarItem>
+                                </Link>
+                            </>
+                        )}
+
+                        <MenubarSeparator />
+
+                        {/* More / Less button */}
+                        <MenubarItem
+                            onSelect={(e) => {
+                                e.preventDefault();
+                                setShowMore(!showMore);
+                            }}
+                            className="cursor-pointer font-medium"
+                        >
+                            {showMore ? "Show Less" : "More..."}
+                        </MenubarItem>
+                    </MenubarSubContent>
+                </MenubarSub>
+
+                <MenubarSeparator />
                 <Link to="/message-of-director">
                     <MenubarItem className="cursor-pointer" >
                         Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
@@ -125,6 +197,7 @@ const Navbar = () => {
                 </Link>
             </MenubarContent>
         </MenubarMenu>
+
         <MenubarMenu>
             <MenubarTrigger>Profiles</MenubarTrigger>
             <MenubarContent>
@@ -139,6 +212,7 @@ const Navbar = () => {
                 <MenubarItem className="cursor-pointer" inset>Add Profile...</MenubarItem>
             </MenubarContent>
         </MenubarMenu>
+
         <MenubarMenu>
             <Link to="/feeds">
                 <MenubarTrigger className="cursor-pointer"><Newspaper /></MenubarTrigger>

@@ -26,6 +26,7 @@ import StudentProfile from "@/pages/studentProfile/StudentProfile";
 import MyAllPosts from "@/pages/dashboard/myAccount/MyAllPosts";
 import StudentFeeds from "@/pages/feeds/StudentFeeds";
 import Gallery from "@/pages/view/Gallery";
+import Batch from "@/pages/view/Batch";
 
 export const router = createBrowserRouter([
     {
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
                 path: "gallery",
                 element: <Gallery />
             },
+            {
+                path: "batches/:batchNo",
+                element: <Batch />
+            },
             //news feeds
             {
                 path: "feeds",
@@ -155,4 +160,4 @@ export const router = createBrowserRouter([
         path: "/spinner",
         element: <LoadingSpinner />
     },
-]);
+]); 
