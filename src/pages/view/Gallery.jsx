@@ -1,4 +1,3 @@
-// src/pages/Gallery.jsx
 import { useState } from "react"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -29,17 +28,18 @@ import {
 } from "@/components/ui/pagination"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Camera, CircleEllipsis, UploadCloud } from "lucide-react"
+import { Camera, CircleEllipsis, Loader2, UploadCloud } from "lucide-react"
 import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "react-hook-form"
 import { getStudentId, imageUpload } from "@/utils"
 import { toast } from "sonner"
 import useAuth from "@/hooks/useAuth"
 import useAxiosSecure from "@/hooks/useAxiosSecure"
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 import { Link, useNavigate } from "react-router-dom"
 import LoadingSpinner from "@/myComponents/LoadingSpinner"
 import heroImg from "@/assets/buildings/edited.jpg"
+
 const Gallery = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -60,6 +60,51 @@ const Gallery = () => {
         }
     })
 
+    const { mutateAsync, isPending } = useMutation({
+        mutationFn: async (data) => {
+            const category = data.category
+
+            if (!category) return toast("Warning!", {
+                description: "Category is required.",
+                classNames: {
+                    title: "text-custom-destructive"
+                }
+            })
+
+            const image = uploadImage?.image && await imageUpload(uploadImage.image);
+
+            if (!image) return toast("Warning!", {
+                description: "Image is required.",
+                classNames: {
+                    title: "text-custom-destructive"
+                }
+            })
+
+            const postInfo = {
+                ...data,
+                image,
+                studentId: user && getStudentId(user.email)
+            }
+            axiosSecure.post('/gallery/create', postInfo)
+        },
+        onSuccess: () => {
+            reset()
+            refetch()
+            setOpen(false)
+            setUploadImage("")
+            toast("Successful!", {
+                description: "Your request  has been submitted for Admin approval.",
+                action: {
+                    label: "Okay",
+                    // onClick: () => navigate("/dashboard")
+                },
+            })
+        },
+        onError: () => {
+            console.log("Error")
+        },
+    })
+
     const handleOpenDialog = () => {
         toast("Warning!", {
             description: "Your're not a student of IBA. Please login then post.",
@@ -74,51 +119,16 @@ const Gallery = () => {
     }
 
     const onSubmit = async (data) => {
-        const category = data.category
-
-        if (!category) return toast("Warning!", {
-            description: "Category is required.",
-            classNames: {
-                title: "text-custom-destructive"
-            }
-        })
-
-        const image = uploadImage?.image && await imageUpload(uploadImage.image);
-
-        if (!image) return toast("Warning!", {
-            description: "Image is required.",
-            classNames: {
-                title: "text-custom-destructive"
-            }
-        })
-
-        const postInfo = {
-            ...data,
-            image,
-            studentId: user && getStudentId(user.email)
-        }
-
-        await axiosSecure.post('/gallery/create', postInfo)
-
-        reset()
-        refetch()
-        setOpen(false)
-        setUploadImage("")
-        toast("Successful!", {
-            description: "Your request  has been submitted for Admin approval.",
-            action: {
-                label: "Okay",
-                // onClick: () => navigate("/dashboard")
-            },
-        })
+        await mutateAsync(data)
     }
+
     const filteredImages = activeTab === "All" ? galleryPosts : galleryPosts.filter(post => post.category === activeTab)
 
     if (isLoading) return <LoadingSpinner />
     return (
-        <div className="p-4 sm:p-6 max-w-7xl mx-auto">
+        <div className="p-4 sm:p-6 max-w-7xl mx-auto min-h-screen">
             {/* Hero */}
-            <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-8">
+            <div className="relative h-64 md:h-80 lg:h-96  rounded-2xl overflow-hidden mb-8">
                 <img src={heroImg} className="object-cover w-full h-full" alt="Campus Banner" />
                 <div className="absolute inset-0  flex items-center justify-center text-white text-4xl font-bold">
                     Campus Gallery 📸
@@ -126,7 +136,7 @@ const Gallery = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex flex-col-reverse md:flex-row justify-between md:items-center gap-4 mb-6">
+            <div className="flex flex-col-reverse lg:flex-row justify-between lg:items-center gap-4 mb-6">
                 <Tabs defaultValue="All" onValueChange={setActiveTab}>
                     <TabsList className="flex flex-wrap justify-start items-center h-auto">
                         <TabsTrigger value="All" className="flex-none">All</TabsTrigger>
@@ -154,7 +164,7 @@ const Gallery = () => {
                         Upload Image
                     </Button>}
                     <DialogContent className="sm:max-w-[425px]">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        {isPending ? <div className="min-h-80 flex justify-center items-center"><Loader2 className="animate-spin" size={64} /></div> : <form onSubmit={handleSubmit(onSubmit)}>
                             <DialogHeader className="text-center">
                                 <DialogTitle>Decorate Gallery</DialogTitle>
                                 <DialogDescription>
@@ -219,7 +229,8 @@ const Gallery = () => {
                             <DialogFooter>
                                 <Button type="submit" className="cursor-pointer">Add To Gallery</Button>
                             </DialogFooter>
-                        </form>
+                        </form>}
+
                     </DialogContent>
                 </Dialog>
             </div>
@@ -229,18 +240,18 @@ const Gallery = () => {
                 {filteredImages.map((post) => (
                     <div
                         key={post._id}
-                        className="relative group overflow-hidden rounded-xl cursor-pointer"
+                        className="relative group overflow-hidden rounded-lg cursor-pointer border"
                         onClick={() => setOpenImage(post)}
                     >
                         <img src={post.image} alt="Campus" className="w-full h-48 object-cover transition group-hover:scale-105 duration-300" />
                         <div className="absolute inset-0  group-hover:bg-opacity-30 transition" >
-                            <Button variant="secondary" className="absolute right-2 top-2  opacity-80 cursor-pointer h-6 w-6"><CircleEllipsis /></Button>
+                            <Button variant="secondary" className="absolute right-1 top-1  opacity-80 cursor-pointer h-6 w-6"><CircleEllipsis /></Button>
                         </div>
                     </div>
                 ))}
             </div>
             {/* pagination */}
-            <Pagination>
+            <Pagination className="mt-4">
                 <PaginationContent>
                     <PaginationItem>
                         <PaginationPrevious href="#" />
