@@ -128,7 +128,7 @@ const Navbar = () => {
                                 9th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
                             </MenubarItem>
                         </Link>
-                        <Link to="/batches/9">
+                        <Link to="/batches/8">
                             <MenubarItem className="cursor-pointer" >
                                 8th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
                             </MenubarItem>
@@ -220,7 +220,7 @@ const Navbar = () => {
         </MenubarMenu>
     </>
     return (
-        <Menubar className="sticky top-0 z-50 bg-background/50 backdrop-blur-md">
+        <Menubar className="sticky top-0 z-[1000] bg-background/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
                 <Link to="/" className="flex items-center gap-2 cursor-pointer">
                     <img src={img} className="w-8 object-cover" alt="IBA logo" />
