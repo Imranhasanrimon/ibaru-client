@@ -13,7 +13,7 @@ const StudentProfile = () => {
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const { data: studentInfo = {}, isLoading } = useQuery({
-        queryKey: ["student"],
+        queryKey: ["student", id],
         queryFn: async () => {
             const res = await axiosSecure(`/users/aUser/${id}`);
             return res.data;

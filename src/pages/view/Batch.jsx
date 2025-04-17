@@ -3,12 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Facebook, FacebookIcon, Linkedin, LinkedinIcon, Mail } from "lucide-react";
+import { Facebook, FacebookIcon, Linkedin, LinkedinIcon, Mail, } from "lucide-react";
+
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
+import useAuth from "@/hooks/useAuth";
+import AllBatchStudents from "@/myComponents/AllBatchStudents";
 
 const Batch = () => {
+    const { user, isLoading: isLoadingAuth } = useAuth()
     const { batchNo } = useParams();
     const axiosSecure = useAxiosSecure();
     const { data: batch = [], isLoading, } = useQuery({
@@ -20,10 +24,9 @@ const Batch = () => {
     })
     const { logo, coverImage, nickName, slogan, description, coordinator, CRInfo, socialLinks, achievements, allStudents = [] } = batch
     if (!batch) return <p className="text-center text-red-500">Batch not found.</p>;
-
-    if (isLoading) return <LoadingSpinner />
+    if (isLoading || isLoadingAuth) return <LoadingSpinner />
     return (
-        <div className="max-w-5xl mx-auto p-4 space-y-4">
+        <div className="max-w-5xl mx-auto p-4 space-y-4 ">
             {/* Cover Image */}
             <div className="relative mb-40 md:mb-24">
                 <div className="relative w-full h-60 rounded-md md:rounded-lg overflow-hidden border-2">
@@ -120,29 +123,8 @@ const Batch = () => {
             </Card>
 
             {/* allStudents */}
-            <div className="grid md:grid-cols-2 gap-2 bg-accent p-2 rounded-md">
-                {
-                    allStudents.map(student => <Card key={student.studentId} className="p-2">
-                        <CardContent className="p-0 flex justify-between items-center">
-                            <div className="flex items-center gap-4 p-0">
-                                <Avatar className="h-16 w-16 rounded-lg">
-                                    <AvatarImage src={student.image} />
-                                    <AvatarFallback>{student.name.split(" ")[1]}</AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <h2 className={`md:text-lg font-semibold`}>{student.name}</h2>
-                                    <p className="text-gray-500">{student.studentId}</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                {student.bloodGroup && <Badge>{student.bloodGroup}</Badge>}
-                            </div>
-                        </CardContent>
-                    </Card>)
-                }
-            </div>
-        </div>
+            <AllBatchStudents allStudents={allStudents} user={user} batchNo={batchNo} />
+        </div >
     );
 };
 
