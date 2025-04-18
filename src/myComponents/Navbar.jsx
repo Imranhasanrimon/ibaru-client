@@ -28,7 +28,7 @@ import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Home, Newspaper, Images, GraduationCap } from "lucide-react";
+import { Menu, Telescope, Focus, History, Crosshair, Mail, Users, UserRound, Images, GraduationCap, Home, Users2, BookOpenText, LayoutDashboard, Aperture, Rss } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import useAuth from "@/hooks/useAuth";
 import { getStudentId } from "@/utils";
@@ -39,12 +39,12 @@ const Navbar = () => {
     const { user } = useAuth();
     const menu = <>
         <MenubarMenu>
-            <Link to="/">
-                <MenubarTrigger className="cursor-pointer"><Home /></MenubarTrigger>
+            <Link to="/" className="w-full sm:w-auto">
+                <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Home size={18} className="mr-2 sm:hidden inline-block" />Home</MenubarTrigger>
             </Link>
         </MenubarMenu>
         <MenubarMenu >
-            <MenubarTrigger>About Us</MenubarTrigger>
+            <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Users2 size={18} className="mr-2 sm:hidden inline-block" /> About Us</MenubarTrigger>
             <MenubarContent>
                 <Link to="/history">
                     <MenubarItem className="cursor-pointer" >
@@ -74,7 +74,7 @@ const Navbar = () => {
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-            <MenubarTrigger>Admission</MenubarTrigger>
+            <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><BookOpenText size={18} className="mr-2 sm:hidden inline-block" />Admission</MenubarTrigger>
             <MenubarContent>
                 <Link to="/admission-bba">
                     <MenubarItem className="cursor-pointer">BBA Program</MenubarItem>
@@ -97,7 +97,7 @@ const Navbar = () => {
             </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-            <MenubarTrigger>View</MenubarTrigger>
+            <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><LayoutDashboard size={18} className="mr-2 sm:hidden inline-block" />View</MenubarTrigger>
             <MenubarContent>
                 <Link to="/faculties">
                     <MenubarItem className="cursor-pointer" >
@@ -138,14 +138,14 @@ const Navbar = () => {
                                 7th  <MenubarShortcut><GraduationCap /></MenubarShortcut>
                             </MenubarItem>
                         </Link>
+                        <Link to="/batches/6">
+                            <MenubarItem className="cursor-pointer">
+                                6th <MenubarShortcut><GraduationCap /></MenubarShortcut>
+                            </MenubarItem>
+                        </Link>
                         {/* Expandable extra batches */}
                         {showMore && (
                             <>
-                                <Link to="/batches/6">
-                                    <MenubarItem className="cursor-pointer">
-                                        6th <MenubarShortcut><GraduationCap /></MenubarShortcut>
-                                    </MenubarItem>
-                                </Link>
                                 <Link to="/batches/5">
                                     <MenubarItem className="cursor-pointer">
                                         5th <MenubarShortcut><GraduationCap /></MenubarShortcut>
@@ -199,7 +199,7 @@ const Navbar = () => {
         </MenubarMenu>
 
         <MenubarMenu>
-            <MenubarTrigger>Profiles</MenubarTrigger>
+            <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Aperture size={18} className="mr-2 sm:hidden inline-block" />Profiles</MenubarTrigger>
             <MenubarContent>
                 <MenubarRadioGroup value="benoit">
                     <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
@@ -214,30 +214,37 @@ const Navbar = () => {
         </MenubarMenu>
 
         <MenubarMenu>
-            <Link to="/feeds">
-                <MenubarTrigger className="cursor-pointer"><Newspaper /></MenubarTrigger>
+            <Link to="/feeds" className="w-full sm:w-auto">
+                <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Rss size={18} className="mr-2 sm:hidden inline-block" />Feeds</MenubarTrigger>
             </Link>
         </MenubarMenu>
     </>
     return (
-        <Menubar className="sticky top-0 z-[1000] bg-background/50 backdrop-blur-md">
+        <Menubar className="sticky top-0 z-50 bg-background/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
                 <Link to="/" className="flex items-center gap-2 cursor-pointer">
                     <img src={img} className="w-8 object-cover" alt="IBA logo" />
                     <h1 className="text-xl">IBA</h1>
                 </Link>
+
                 {/* Mobile Drawer Menu */}
-                <div className="sm:hidden ml-2">
+                <div className="sm:hidden ml-2 ">
                     <Sheet open={isOpen} onOpenChange={setIsOpen} side="left">
                         <SheetTrigger asChild>
                             <Button variant="outline" size="icon" className="cursor-pointer">
                                 <Menu className="h-6 w-6" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent className="p-4" side="left">
+                        <SheetContent className="p-4 bg-sidebar" side="left">
                             <SheetTitle className="sr-only">My Hidden Sheet Title</SheetTitle>
-                            <SheetDescription>Contents</SheetDescription>
-                            <Menubar className="flex flex-col rounded-lg">
+                            <SheetDescription className="text-primary">
+                                <Link to="/" className="inline-flex items-center gap-2 cursor-pointer">
+                                    <img src={img} className="w-8 object-cover" alt="IBA logo" />
+                                    <span className="text-xl">IBA RU</span>
+                                </Link>
+                            </SheetDescription>
+
+                            <Menubar className="flex flex-col items-start rounded-lg  bg-sidebar p-0 border-0 shadow-none">
                                 {menu}
                             </Menubar>
                         </SheetContent>

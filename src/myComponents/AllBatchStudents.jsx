@@ -18,9 +18,9 @@ const AllBatchStudents = ({ allStudents, user, batchNo }) => {
         <div className="py-6">
 
             <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>All Students</h3>
-            <p className={`text-center text-slate-${theme == "dark" ? "400" : "600"} px-4 mb-8`}>Theses are the students from batch-{batchNo} who have registered in this platform.</p>
+            <p className={`text-center text-slate-${theme == "dark" ? "400" : "600"} px-4 mb-8`}>These are the students from {batchNo}<sup>{batchNo == 1 ? "st" : batchNo == 2 ? "nd" : batchNo == 3 ? "rd" : "th"}</sup> batch who have registered in this platform.</p>
 
-            {allStudents.length == 0 ? <div className="bg-card p-4 rounded-lg text-xl text-center border"><p>No students registered yet.</p></div> :
+            {allStudents.length == 0 ? <div className="bg-card shadow-sm p-4 rounded-lg text-xl text-center border"><p>No students registered yet.</p></div> :
                 <div className="grid md:grid-cols-2 gap-2  rounded-md">
                     {
                         allStudents.map(student => <Card key={student.studentId} className="p-2">
@@ -45,10 +45,10 @@ const AllBatchStudents = ({ allStudents, user, batchNo }) => {
                                         <PopoverContent side="left" className="w-auto max-w-69 p-2">
                                             <div className="grid gap-4">
                                                 <div className="space-y-2">
-                                                    <h4 className="font-medium leading-none">{student.name}</h4>
+                                                    <h4 className="font-semibold leading-none">{student.name}</h4>
 
                                                     {
-                                                        student?.district || student?.bloodGroup ? <div className="flex items-center gap-4">
+                                                        student?.district || student?.bloodGroup ? <div className={`${student?.district.length > 16 ? "flex flex-col" : "flex items-center gap-3"}`}>
 
                                                             {student?.district && <h5 className=" text-muted-foreground"><MapPin className="inline-block mb-1 mr-1" size={18} />{student?.district}</h5>}
 

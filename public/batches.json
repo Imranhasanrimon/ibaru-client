@@ -1,8 +1,8 @@
 [
     {
         "batchNo": 1,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/gLx0wMNK/logo-common.jpg",
+        "coverImage": "https://i.ibb.co.com/5gSt3b1G/cover-1st.jpg",
         "nickName": "Legends",
         "slogan": "Where it all began.",
         "description": "The pioneer batch that laid the foundation for everything that followed.",
@@ -11,7 +11,15 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Professor, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Professor, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
             "facebook": "https://facebook.com/batch1group",
             "linkedin": "https://linkedin.com/groups/batch1"
@@ -23,8 +31,8 @@
     },
     {
         "batchNo": 2,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/gLx0wMNK/logo-common.jpg",
+        "coverImage": "https://i.ibb.co.com/hF3DmKMS/cover-2nd.jpg",
         "nickName": "Trailblazers",
         "slogan": "Lead the way.",
         "description": "A dynamic batch known for leadership and innovation.",
@@ -33,7 +41,15 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Ass. Professor, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Ass. Professor, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
             "facebook": "https://facebook.com/batch2group"
         },
@@ -43,8 +59,8 @@
     },
     {
         "batchNo": 3,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/XxskQDjn/logo-3rd.jpg",
+        "coverImage": "https://i.ibb.co.com/r2LrTK3Z/cover-3rd.jpg",
         "nickName": "Catalysts",
         "slogan": "Change starts here.",
         "description": "Known for their energetic spirit and creative ventures.",
@@ -53,7 +69,15 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Lecturer, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Lecturer, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
             "linkedin": "https://linkedin.com/groups/batch3"
         },
@@ -63,8 +87,8 @@
     },
     {
         "batchNo": 4,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/gLx0wMNK/logo-common.jpg",
+        "coverImage": "https://i.ibb.co.com/B2BzQv5d/cover-4th.jpg",
         "nickName": "Dynamos",
         "slogan": "Energize. Empower. Excel.",
         "description": "A bold batch recognized for their teamwork and academic excellence.",
@@ -73,7 +97,15 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Lecturer, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Lecturer, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
             "facebook": "https://facebook.com/batch4group"
         },
@@ -83,8 +115,8 @@
     },
     {
         "batchNo": 5,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/Zpm4Mp8d/logo-5th.jpg",
+        "coverImage": "https://i.ibb.co.com/20Jtnktp/cover-5th.jpg",
         "nickName": "Innovators",
         "slogan": "Think Different.",
         "description": "A tech-savvy batch passionate about modern business solutions.",
@@ -93,9 +125,17 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Ass. Professor, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Ass. Professor, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
-            "facebook": "https://facebook.com/batch5group",
+            "facebook": "https://www.facebook.com/profile.php?id=61554176109010",
             "linkedin": "https://linkedin.com/groups/batch5"
         },
         "achievements": [
@@ -104,8 +144,8 @@
     },
     {
         "batchNo": 6,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/7NQGXCn3/logo-6th.jpg",
+        "coverImage": "https://i.ibb.co.com/RTjj4nKb/cover-6th.jpg",
         "nickName": "Visionaries",
         "slogan": "See beyond limits.",
         "description": "A strategic batch known for their forward-thinking approach.",
@@ -114,9 +154,18 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Professor, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Professor, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
-            "facebook": "https://facebook.com/batch6group"
+            "facebook": "https://www.facebook.com/ibaru6th",
+            "email": "iba.ru.6th@gmail.com"
         },
         "achievements": [
             "Champion: Business Case Contest 2023"
@@ -124,8 +173,8 @@
     },
     {
         "batchNo": 7,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/TxRZVDr6/logo-7th.jpg",
+        "coverImage": "https://i.ibb.co.com/zVgXyKDL/cover-7th.jpg",
         "nickName": "Gamechangers",
         "slogan": "Break the norm.",
         "description": "Known for redefining conventions and pushing boundaries.",
@@ -134,9 +183,17 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Lecturer, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Lecturer, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
-            "facebook": "https://facebook.com/batch7group"
+            "facebook": "https://www.facebook.com/profile.php?id=100087370428845"
         },
         "achievements": [
             "Runner-up: Startup Carnival 2024"
@@ -144,8 +201,8 @@
     },
     {
         "batchNo": 8,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/ZzCJNfw5/logo-8th.jpg",
+        "coverImage": "https://i.ibb.co.com/wF9cXd20/cover-8th.jpg",
         "nickName": "Pathfinders",
         "slogan": "Lead with vision.",
         "description": "A confident batch leading both academics and co-curriculars.",
@@ -154,9 +211,18 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Ass. Professor, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Ass. Professor, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
-            "facebook": "https://facebook.com/batch8group"
+            "facebook": "https://www.facebook.com/profile.php?id=61552750871778",
+            "email": "Ibaru8thbatch@gmail.com"
         },
         "achievements": [
             "Champion: Leadership Summit 2023"
@@ -164,8 +230,8 @@
     },
     {
         "batchNo": 9,
-        "logo": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/313988233_3316141421961961_2882712757343295356_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=2d3e12&_nc_ohc=_GxglfJdU5gQ7kNvwFLNctv&_nc_oc=AdnPn_zrfuZZ_Qw4MzG1UlwR51RlBsR374NgOaBrTgiVJVjOwtpwYp3lfu9F1Qdn2mQ&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfF4ZRnJ_KyaZuFLIUfMRBMXJ3L3ksTjsYYNJqaKvAB-3Q&oe=68053F37",
-        "coverImage": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-6/477013227_3925251681050929_6617049599501123496_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=102&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=YFZlL80jgy8Q7kNvwF-iP2v&_nc_oc=AdnNOmzQuJL7IQTdqHQHDYEnZ_g2bcpFMaCVOLsX2tOEa9UVcDrfQ6QZ4EYIio2b3wo&_nc_zt=23&_nc_ht=scontent.fdac31-1.fna&_nc_gid=1y1WKireyDna-nVlVUHnTw&oh=00_AfGk-0ccSqW8cz-hOvsM28IZHxrRHkiVBW5G3aamwwYo6Q&oe=68056299",
+        "logo": "https://i.ibb.co.com/nqNkW0TC/logo-9th.jpg",
+        "coverImage": "https://i.ibb.co.com/8LZp1T0r/cover-9th.jpg",
         "nickName": "Ninjas",
         "slogan": "Silently lethal.",
         "description": "The youngest and one of the most energetic batches.",
@@ -174,9 +240,17 @@
             "image": "https://scontent.fdac31-1.fna.fbcdn.net/v/t39.30808-1/485798701_30018177794447718_834938222538244766_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=111&ccb=1-7&_nc_sid=1d2534&_nc_ohc=OHzbTNXBIg0Q7kNvwEjDTwN&_nc_oc=AdlzIhxPNEHAI_NCBmVsgQUNk6b7Ai4JJTVltqAn97PHu4PjUVuA2KNrC5mB_Skj_oI&_nc_zt=24&_nc_ht=scontent.fdac31-1.fna&_nc_gid=wGP8yDqAPN7--e1qTffshA&oh=00_AfE96eS2s1wb5oQXzjiystA-ewfdlA78P0Ug7DeS3EuxUA&oe=68055264",
             "title": "Lecturer, IBA, RU"
         },
-        "CRID": "2113285125",
+        "programChairman": {
+            "name": "Shariful Islam",
+            "image": "https://i.ibb.co.com/whMWLQv5/Shariful-Islam.jpg",
+            "title": "Lecturer, IBA, RU"
+        },
+        "CRID": {
+            "male": "2113285125",
+            "female": "2113285154"
+        },
         "socialLinks": {
-            "facebook": "https://facebook.com/batch9group"
+            "facebook": "https://www.facebook.com/IBARU.BBA9"
         },
         "achievements": [
             "Champion: Business Fest 2024",
