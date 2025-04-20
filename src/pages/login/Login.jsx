@@ -26,6 +26,20 @@ const Login = ({
     const { signInUser, loading, setLoading } = useContext(AuthContext)
 
     const onSubmit = async (data) => {
+
+        if (data?.email?.length !== 10 || data?.password?.length !== 10) {
+            toast("Incorrect!", {
+                description: "Something went wrong with the student ID or registration No.",
+                action: {
+                    label: "Okay",
+                },
+                classNames: {
+                    title: "text-custom-destructive"
+                }
+            })
+            return
+        }
+
         try {
             await signInUser(data?.email + "@gmail.com", data?.password);
             reset();
@@ -47,7 +61,6 @@ const Login = ({
         }
     }
 
-    if (loading) return <LoadingSpinner />
     return (
         <div className="flex  min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">
             <div className="absolute top-5 right-5">

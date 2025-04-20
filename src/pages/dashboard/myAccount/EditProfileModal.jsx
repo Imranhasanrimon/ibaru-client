@@ -66,7 +66,7 @@ const EditProfileModal = ({ studentInfo, refetch }) => {
                                 <Label htmlFor="name" className="text-right col-span-4">
                                     Name
                                 </Label>
-                                <Input {...register('name')} id="name" defaultValue={name} placeholder="e.g., IMRAN HASAN RIMON" required className="col-span-4" />
+                                <Input {...register('name')} id="name" defaultValue={name} placeholder="e.g., Imran Hasan Rimon" required className="col-span-4" />
                             </div>
                             <div className="grid grid-cols-4 items-center gap-4">
                                 <Label htmlFor="hall" className="text-right col-span-4">
@@ -214,13 +214,13 @@ const EditProfileModal = ({ studentInfo, refetch }) => {
                                 <Label htmlFor="Mother's Name" className="text-right col-span-4">
                                     Mother's Name
                                 </Label>
-                                <Input defaultValue={motherName} {...register('motherName')} id="Mother's Name" placeholder="e.g., NOORZAHAN AKTER" className="col-span-4" />
+                                <Input defaultValue={motherName} {...register('motherName')} id="Mother's Name" placeholder="e.g., Noorzahan Akter" className="col-span-4" />
                             </div>
                             <div className="grid grid-cols-4 items-center gap-4">
                                 <Label htmlFor="Father's Name" className="text-right col-span-4">
                                     Father's Name
                                 </Label>
-                                <Input defaultValue={fatherName} {...register('fatherName')} id="Father's Name" placeholder="e.g., TAJ MUHAMMAD" className="col-span-4" />
+                                <Input defaultValue={fatherName} {...register('fatherName')} id="Father's Name" placeholder="e.g., Taj Muhammad" className="col-span-4" />
                             </div>
                         </div>
 

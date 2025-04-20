@@ -39,14 +39,17 @@ const Register = ({
             image
         }
 
-        if (email.length < 10 || password.length < 10) {
-            toast("Input must be 10 characters !", {
-                description: "There might be a typo in ID or registration no.",
+        if (email?.length !== 10 || password?.length !== 10) {
+            toast("Incorrect!", {
+                description: "Something went wrong with the student ID or registration No.",
                 action: {
-                    label: "❌",
+                    label: "Okay",
                 },
-            });
-            return;
+                classNames: {
+                    title: "text-custom-destructive"
+                }
+            })
+            return
         }
 
         try {
@@ -70,7 +73,7 @@ const Register = ({
         }
     }
 
-    if (loading) return <LoadingSpinner />
+    // if (loading) return <LoadingSpinner />
 
     return (
         <div className="relative flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:px-10">

@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Facebook, FacebookIcon, Linkedin, LinkedinIcon, Mail, Phone, } from "lucide-react";
+import { FacebookIcon, LinkedinIcon, Mail, Phone, } from "lucide-react";
 
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -42,7 +42,9 @@ const Batch = () => {
                             <Link to={socialLinks?.facebook}>
                                 <Button className="cursor-pointer"> <FacebookIcon /></Button>
                             </Link>
-                            <Button className="cursor-pointer"> <LinkedinIcon /></Button>
+                            <Link to={socialLinks?.linkedin ? socialLinks?.linkedin : ""}>
+                                <Button className="cursor-pointer"> <LinkedinIcon /></Button>
+                            </Link>
                         </div>
 
                         <div className="flex gap-2 sm:gap-4">
@@ -72,44 +74,53 @@ const Batch = () => {
                 </div>
             </div>
 
+            <div className="grid sm:grid-cols-2 gap-4">
+                {/* Description */}
+                <Card className="p-4">
+                    <CardContent className="p-0 " >
+                        <h3 className="text-xl font-semibold mb-1 text-center">Intro</h3>
+                        <p className="text-gray-500 text-center">{description}</p>
+                    </CardContent>
+                </Card>
+                {/* Achievements */}
+                <Card className="p-4">
+                    <CardContent className="p-0 space-y-2 text-center">
+                        <h3 className="text-xl font-semibold mb-2">Achievements</h3>
+                        {achievements.map((item, idx) => (
+                            <Badge key={idx} variant="secondary" className="mr-2">{item}</Badge>
+                        ))}
+                    </CardContent>
+                </Card>
+            </div>
 
-            {/* Description */}
-            <Card className="p-4">
-                <CardContent className="p-0" >
-                    <p className="text-gray-700 text-lg">{description}</p>
+            {/* Gallery */}
+            <Card className="p-4 mb-8">
+                <CardContent className="p-0 grid grid-cols-2 sm:grid-cols-4 gap-4" >
+
+                    <div className="col-span-2 sm:col-span-4 flex justify-between items-center">
+                        <h3 className="text-xl font-semibold ">Gallery</h3>
+                        <Button variant="outline" className="col-span-2 sm:col-span-4 cursor-pointer">More</Button>
+                    </div>
+
+                    <img
+                        className="rounded-lg"
+                        src="https://i.ibb.co.com/hF3DmKMS/cover-2nd.jpg" alt="batch-gallery" />
+                    <img
+                        className="rounded-lg"
+                        src="https://i.ibb.co.com/20Jtnktp/cover-5th.jpg" alt="batch-gallery" />
+                    <img
+                        className="rounded-lg"
+                        src="https://i.ibb.co.com/hF3DmKMS/cover-2nd.jpg" alt="batch-gallery" />
+                    <img
+                        className="rounded-lg"
+                        src="https://i.ibb.co.com/20Jtnktp/cover-5th.jpg" alt="batch-gallery" />
+
+
                 </CardContent>
             </Card>
 
             {/* programChairman,coordinator,CRInfo */}
             <BatchOrganizer programChairman={programChairman} coordinator={coordinator} CRInfo={CRInfo} user={user} />
-
-            {/* Social Links */}
-            <div className="flex gap-3">
-                {socialLinks.facebook && (
-                    <Button variant="outline" size="icon" asChild>
-                        <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer">
-                            <Facebook className="h-5 w-5" />
-                        </a>
-                    </Button>
-                )}
-                {socialLinks.linkedin && (
-                    <Button variant="outline" size="icon" asChild>
-                        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                            <Linkedin className="h-5 w-5" />
-                        </a>
-                    </Button>
-                )}
-            </div>
-
-            {/* Achievements */}
-            <Card>
-                <CardContent className="p-6 space-y-2">
-                    <h3 className="text-xl font-semibold mb-2">Achievements</h3>
-                    {achievements.map((item, idx) => (
-                        <Badge key={idx} variant="secondary" className="mr-2">{item}</Badge>
-                    ))}
-                </CardContent>
-            </Card>
 
             {/* allStudents */}
             <AllBatchStudents allStudents={allStudents} user={user} batchNo={batchNo} />
