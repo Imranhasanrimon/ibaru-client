@@ -67,7 +67,19 @@ const Register = ({
 
         } catch (err) {
             //error handling should be done
-            console.log(err);
+            if (err.code === 'auth/email-already-in-use') {
+                toast("Warning!", {
+                    description: "You’ve already registered. Please log in to proceed.",
+                    action: {
+                        label: "Login",
+                        onClick: () => navigate("/login")
+                    },
+                    classNames: {
+                        title: "text-custom-destructive"
+                    }
+                });
+
+            }
         } finally {
             setLoading(false)
         }
@@ -113,7 +125,7 @@ const Register = ({
                                     </Button>
 
                                     <div className="text-center text-sm">
-                                        Already logged in before?{" "}
+                                        Already registered?{" "}
                                         <Link to="/login" className="underline underline-offset-4">
                                             Login
                                         </Link>

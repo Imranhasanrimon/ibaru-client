@@ -223,7 +223,7 @@ const Navbar = () => {
         <Menubar className="sticky top-0 z-50 bg-background/50 backdrop-blur-md">
             <div className="flex items-center gap-2">
                 <Link to="/" className="flex items-center gap-2 cursor-pointer">
-                    <img src={img} className="w-8 object-cover" alt="IBA logo" />
+                    <img src="https://i.ibb.co.com/gLx0wMNK/logo-common.jpg" className="w-8 object-cover rounded-full" alt="IBA logo" />
                     <h1 className="text-xl">IBA</h1>
                 </Link>
 

@@ -5,14 +5,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import buildingImg from "@/assets/buildings/building2.jpg"
 import IBA_logo from "@/assets/logo/IBA_logo.png"
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Loader2, Eye, EyeOff } from "lucide-react"
-import { AuthContext } from "@/contexts/AllContexts"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import { toast } from "sonner"
-import LoadingSpinner from "@/myComponents/LoadingSpinner"
+import useAuth from "@/hooks/useAuth"
+
 
 const Login = ({
     className,
@@ -23,7 +23,7 @@ const Login = ({
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
     const { register, handleSubmit, reset } = useForm();
-    const { signInUser, loading, setLoading } = useContext(AuthContext)
+    const { signInUser, loading, setLoading } = useAuth()
 
     const onSubmit = async (data) => {
 
@@ -54,7 +54,19 @@ const Login = ({
 
         } catch (err) {
             //error handling should be done
-            console.log(err);
+            if (err.code === 'auth/invalid-credential') {
+                toast("Warning!", {
+                    description: "Invalid credentials or you didn't register yet.",
+                    action: {
+                        label: "Register",
+                        onClick: () => navigate("/register")
+                    },
+                    classNames: {
+                        title: "text-custom-destructive"
+                    }
+                });
+
+            }
 
         } finally {
             setLoading(false)
@@ -74,7 +86,7 @@ const Login = ({
                             <form onSubmit={handleSubmit(onSubmit)} className="p-6 md:p-8">
                                 <div className="flex flex-col gap-6">
                                     <div className="flex flex-col items-center text-center">
-                                        <h1 className="text-2xl font-bold">Welcome back</h1>
+                                        <h1 className="text-2xl font-bold">Login</h1>
                                         <p className="text-muted-foreground text-balance">
                                             Login to your student account
                                         </p>

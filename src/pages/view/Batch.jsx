@@ -104,13 +104,13 @@ const Batch = () => {
 
                     <img
                         className="rounded-lg"
-                        src="https://i.ibb.co.com/hF3DmKMS/cover-2nd.jpg" alt="batch-gallery" />
-                    <img
-                        className="rounded-lg"
-                        src="https://i.ibb.co.com/20Jtnktp/cover-5th.jpg" alt="batch-gallery" />
+                        src="https://i.ibb.co.com/ds1CvfZL/general-6th.jpg" alt="batch-gallery" />
                     <img
                         className="rounded-lg"
                         src="https://i.ibb.co.com/hF3DmKMS/cover-2nd.jpg" alt="batch-gallery" />
+                    <img
+                        className="rounded-lg"
+                        src="https://i.ibb.co.com/ds1CvfZL/general-6th.jpg" alt="batch-gallery" />
                     <img
                         className="rounded-lg"
                         src="https://i.ibb.co.com/20Jtnktp/cover-5th.jpg" alt="batch-gallery" />
