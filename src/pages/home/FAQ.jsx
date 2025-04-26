@@ -7,14 +7,12 @@ import {
 import { Link } from "react-router-dom";
 import building from "@/assets/buildings/building2.jpg"
 import { MessageCircleQuestion } from "lucide-react";
+import Heading from "@/myComponents/Heading";
 
 const FAQ = () => {
     return (
-        <div className="p-4 max-w-3xl mx-auto">
-            <div className='max-w-2xl mx-auto'>
-                <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>FAQ</h3>
-                <p className={`text-center dark:text-slate-400  text-slate-600  px-4 mb-8`}>Answers to common questions about IBA RU, admissions, and programs.</p>
-            </div>
+        < >
+            <Heading title="FAQ" des="Answers to common questions about IBA RU, admissions, and programs." />
 
             <div className="grid md:grid-cols-2 gap-2  items-center">
                 <div className="h-75 overflow-hidden rounded-md relative">
@@ -81,7 +79,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-        </div>
+        </>
     );
 };
 

@@ -21,6 +21,7 @@ import { Loader2, MessageCircleMore } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Rating } from 'react-simple-star-rating';
 import LoadingSpinner from '@/myComponents/LoadingSpinner';
+import Heading from '@/myComponents/Heading';
 
 const Reviews = () => {
     const axiosSecure = useAxiosSecure()
@@ -87,13 +88,9 @@ const Reviews = () => {
     }
     if (isLoading) return <LoadingSpinner />
     return (
-        <div className='max-w-7xl mx-auto'>
-            <div className='max-w-2xl mx-auto'>
-                <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>What Our Students Say</h3>
-                <p className={`text-center dark:text-slate-400  text-slate-600  px-4 mb-8`}>From classrooms to campus life, hear how IBA RU shaped minds, careers, and lasting memories. These are the voices that define us.</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 mb-2">
+        <>
+            <Heading title="What Our Students Say" des="From classrooms to campus life, hear how IBA RU shaped minds, careers, and lasting memories. These are the voices that define us." />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-2">
                 {reviews.map(review => <ReviewCard key={review.studentInfo.studentId} review={review} />)}
             </div>
 
@@ -136,7 +133,7 @@ const Reviews = () => {
                     </form>}
                 </DialogContent>
             </Dialog>
-        </div>
+        </>
     );
 };
 

@@ -19,7 +19,7 @@ import {
 const ReviewCard = ({ review }) => {
     const { reviewBody, rating, studentInfo } = review;
     return (
-        <Card className="@container/card gap-2 rounded-md ">
+        <Card className="@container/card dark:hover:bg-card/50 hover:bg-slate-100 duration-400 gap-2 rounded-md ">
             <CardHeader className="flex items-center justify-center">
                 <div>
                     <Avatar className="flex w-12 h-12 border" >
@@ -28,7 +28,7 @@ const ReviewCard = ({ review }) => {
                     </Avatar>
                 </div>
                 <div>
-                    <CardTitle className=" font-semibold tabular-nums text-lg text-center">
+                    <CardTitle className=" font-semibold tabular-nums text-lg lg:text-base text-center">
                         {studentInfo?.name}
                     </CardTitle>
                     <div className='flex  items-center gap-2'>
