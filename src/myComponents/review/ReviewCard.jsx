@@ -19,10 +19,10 @@ import {
 const ReviewCard = ({ review }) => {
     const { reviewBody, rating, studentInfo } = review;
     return (
-        <Card className="@container/card gap-2">
+        <Card className="@container/card gap-2 rounded-md ">
             <CardHeader className="flex items-center justify-center">
                 <div>
-                    <Avatar className="flex w-12 h-12" >
+                    <Avatar className="flex w-12 h-12 border" >
                         <AvatarImage src={studentInfo?.image} alt="student image" />
                         <AvatarFallback>{studentInfo?.name[0]}</AvatarFallback>
                     </Avatar>

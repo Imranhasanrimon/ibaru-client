@@ -4,24 +4,22 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { useTheme } from "@/hooks/useTheme";
 import { Link } from "react-router-dom";
 import building from "@/assets/buildings/building2.jpg"
 import { MessageCircleQuestion } from "lucide-react";
 
 const FAQ = () => {
-    const { theme } = useTheme()
     return (
         <div className="p-4 max-w-3xl mx-auto">
             <div className='max-w-2xl mx-auto'>
                 <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>FAQ</h3>
-                <p className={`text-center text-slate-${theme == "dark" ? "400" : "600"} px-4 mb-8`}>Answers to common questions about IBA RU, admissions, and programs.</p>
+                <p className={`text-center dark:text-slate-400  text-slate-600  px-4 mb-8`}>Answers to common questions about IBA RU, admissions, and programs.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-2  items-center">
                 <div className="h-75 overflow-hidden rounded-md relative">
                     <img src={building} alt="IBA Building" className="object-top sm:object-center object-cover w-full h-full" />
-                    <div className={`absolute inset-0  flex items-center justify-center text-white text-4xl font-bold ${theme == "dark" ? "bg-background/60" : "bg-black/60"}`}>
+                    <div className="absolute inset-0  flex items-center justify-center text-white text-4xl font-bold dark:bg-background/60 bg-black/50">
                         <MessageCircleQuestion size={96} />
                     </div>
                 </div>

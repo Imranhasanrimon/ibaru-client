@@ -14,7 +14,6 @@ const Home = () => {
             <Reviews />
             <FAQ />
             {/* https://www.facebook.com/profile.php?id=61568347791208 */}
-            <div className="h-screen"></div>
         </div>
     );
 };

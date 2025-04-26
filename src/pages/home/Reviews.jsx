@@ -1,6 +1,5 @@
 import useAuth from '@/hooks/useAuth';
 import useAxiosSecure from '@/hooks/useAxiosSecure';
-import { useTheme } from '@/hooks/useTheme';
 import ReviewCard from '@/myComponents/review/ReviewCard';
 import { getStudentId } from '@/utils';
 import { useMutation, useQuery } from '@tanstack/react-query';
@@ -25,7 +24,6 @@ import LoadingSpinner from '@/myComponents/LoadingSpinner';
 
 const Reviews = () => {
     const axiosSecure = useAxiosSecure()
-    const { theme } = useTheme()
     const navigate = useNavigate()
     const [open, setOpen] = useState(false);
     const { user } = useAuth()
@@ -92,7 +90,7 @@ const Reviews = () => {
         <div className='max-w-7xl mx-auto'>
             <div className='max-w-2xl mx-auto'>
                 <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>What Our Students Say</h3>
-                <p className={`text-center text-slate-${theme == "dark" ? "400" : "600"} px-4 mb-8`}>From classrooms to campus life, hear how IBA RU shaped minds, careers, and lasting memories. These are the voices that define us.</p>
+                <p className={`text-center dark:text-slate-400  text-slate-600  px-4 mb-8`}>From classrooms to campus life, hear how IBA RU shaped minds, careers, and lasting memories. These are the voices that define us.</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 mb-2">
