@@ -155,11 +155,11 @@ const Gallery = () => {
                 {/* Upload Button */}
                 <Dialog open={open} onOpenChange={setOpen}>
                     {user ? <DialogTrigger asChild>
-                        <Button variant="outline" className="flex items-center gap-2 cursor-pointer">
+                        <Button variant="outline" className="flex items-center gap-2 cursor-pointer animate-pulse">
                             <UploadCloud size={18} />
                             Upload Image
                         </Button>
-                    </DialogTrigger> : <Button variant="outline" className="flex items-center gap-2 cursor-pointer" onClick={handleOpenDialog}>
+                    </DialogTrigger> : <Button variant="outline" className="flex items-center gap-2 cursor-pointer animate-pulse" onClick={handleOpenDialog}>
                         <UploadCloud size={18} />
                         Upload Image
                     </Button>}
