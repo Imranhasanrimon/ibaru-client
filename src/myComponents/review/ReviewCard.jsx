@@ -1,60 +1,60 @@
-import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
-import { IconTrendingUp } from "@tabler/icons-react"
+import { IconUsers, } from "@tabler/icons-react"
 
 import { Badge } from "@/components/ui/badge"
 import {
     Card,
-    CardAction,
+    CardContent,
     CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import {
+    Avatar,
+    AvatarFallback,
+    AvatarImage,
+} from "@/components/ui/avatar"
 
-const ReviewCard = () => {
-    const [rating, setRating] = useState(0)
-
-    const handleRating = (rate) => {
-        setRating(rate)
-    }
-
+const ReviewCard = ({ review }) => {
+    const { reviewBody, rating, studentInfo } = review;
     return (
-        <div className=" text-gray-500 p-4 rounded shadow border">
-            <p className="mb-2 text-center font-medium">Your Rating</p>
-            <div className="flex justify-center">
+        <Card className="@container/card gap-2">
+            <CardHeader className="flex items-center justify-center">
+                <div>
+                    <Avatar className="flex w-12 h-12" >
+                        <AvatarImage src={studentInfo?.image} alt="student image" />
+                        <AvatarFallback>{studentInfo?.name[0]}</AvatarFallback>
+                    </Avatar>
+                </div>
+                <div>
+                    <CardTitle className=" font-semibold tabular-nums text-lg text-center">
+                        {studentInfo?.name}
+                    </CardTitle>
+                    <div className='flex  items-center gap-2'>
+                        <Badge variant="outline">{studentInfo?.studentId}</Badge>
+                        <Badge variant="ghost">
+                            <IconUsers />
+                            {studentInfo?.batch}{studentInfo?.batch == 1 ? "st" : studentInfo?.batch == 2 ? "nd" : studentInfo?.batch == 3 ? "rd" : "th"}
+                        </Badge>
+                    </div>
+                </div>
+            </CardHeader>
+
+            <CardContent className="text-sm flex-grow">
+                <CardDescription className="text-center">{reviewBody}</CardDescription>
+            </CardContent>
+
+            <CardFooter className="justify-center">
                 <Rating
-                    onClick={handleRating}
+                    initialValue={rating}
                     allowFraction
-                    transition
-                    // readonly
+                    readonly
+                    size={25}
                     SVGstyle={{ display: 'inline-block' }}
                 />
-            </div>
-            <p className="mt-2 text-center text-sm text-gray-500">Rating: {rating}</p>
-            <Card className="@container/card">
-                <CardHeader>
-                    <CardDescription>Total Revenue</CardDescription>
-                    <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-                        $1,250.00
-                    </CardTitle>
-                    <CardAction>
-                        <Badge variant="outline">
-                            <IconTrendingUp />
-                            +12.5%
-                        </Badge>
-                    </CardAction>
-                </CardHeader>
-                <CardFooter className="flex-col items-start gap-1.5 text-sm">
-                    <div className="line-clamp-1 flex gap-2 font-medium">
-                        Trending up this month <IconTrendingUp className="size-4" />
-                    </div>
-                    <div className="text-muted-foreground">
-                        Visitors for the last 6 months
-                    </div>
-                </CardFooter>
-            </Card>
-        </div>
+            </CardFooter>
+        </Card>
     );
 };
 
