@@ -45,7 +45,7 @@ const Navbar = () => {
         </MenubarMenu>
         <MenubarMenu >
             <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Users2 size={18} className="mr-2 sm:hidden inline-block" /> About Us</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="bg-background/50 backdrop-blur-md">
                 <Link to="/history">
                     <MenubarItem className="cursor-pointer" >
                         History <MenubarShortcut><History /></MenubarShortcut>
@@ -75,7 +75,7 @@ const Navbar = () => {
         </MenubarMenu>
         <MenubarMenu>
             <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><BookOpenText size={18} className="mr-2 sm:hidden inline-block" />Admission</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="bg-background/50 backdrop-blur-md">
                 <Link to="/admission-bba">
                     <MenubarItem className="cursor-pointer">BBA Program</MenubarItem>
                 </Link>
@@ -96,31 +96,33 @@ const Navbar = () => {
                 </Link>
             </MenubarContent>
         </MenubarMenu>
-        <MenubarMenu>
+        <MenubarMenu >
             <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><LayoutDashboard size={18} className="mr-2 sm:hidden inline-block" />View</MenubarTrigger>
-            <MenubarContent>
-                <Link to="/faculties">
-                    <MenubarItem className="cursor-pointer" >
-                        Faculties <MenubarShortcut><Users /></MenubarShortcut>
-                    </MenubarItem>
-                </Link>
-                <Link to="/officers-and-staffs">
-                    <MenubarItem className="cursor-pointer" >
-                        Offiers and Staffs <MenubarShortcut><UserRound /></MenubarShortcut>
-                    </MenubarItem>
-                </Link>
-                <Link to="/gallery">
-                    <MenubarItem className="cursor-pointer" >
-                        Gallery <MenubarShortcut><Images /></MenubarShortcut>
-                    </MenubarItem>
-                </Link>
-
-                <MenubarSeparator />
-
+            <MenubarContent className="bg-transparent p-0">
+                <div className="bg-background/50 backdrop-blur-md p-1">
+                    <Link to="/faculties">
+                        <MenubarItem className="cursor-pointer" >
+                            Faculties <MenubarShortcut><Users /></MenubarShortcut>
+                        </MenubarItem>
+                    </Link>
+                    <Link to="/officers-and-staffs">
+                        <MenubarItem className="cursor-pointer" >
+                            Offiers and Staffs <MenubarShortcut><UserRound /></MenubarShortcut>
+                        </MenubarItem>
+                    </Link>
+                    <Link to="/gallery">
+                        <MenubarItem className="cursor-pointer" >
+                            Gallery <MenubarShortcut><Images /></MenubarShortcut>
+                        </MenubarItem>
+                    </Link>
+                    <MenubarSeparator />
+                </div>
                 {/* Batches */}
                 <MenubarSub >
-                    <MenubarSubTrigger > Batches </MenubarSubTrigger>
-                    <MenubarSubContent >
+                    <div className="bg-background/50 backdrop-blur-md px-1">
+                        <MenubarSubTrigger className="cursor-pointer"> Batches </MenubarSubTrigger>
+                    </div>
+                    <MenubarSubContent className="bg-background/50 backdrop-blur-md z-50 border">
                         <MenubarItem>Explore</MenubarItem>
                         <MenubarSeparator />
                         <Link to="/batches/9">
@@ -188,19 +190,20 @@ const Navbar = () => {
                         </MenubarItem>
                     </MenubarSubContent>
                 </MenubarSub>
-
-                <MenubarSeparator />
-                <Link to="/message-of-director">
-                    <MenubarItem className="cursor-pointer" >
-                        Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
-                    </MenubarItem>
-                </Link>
+                <div className="bg-background/50 backdrop-blur-md p-1">
+                    <MenubarSeparator />
+                    <Link to="/message-of-director">
+                        <MenubarItem className="cursor-pointer" >
+                            Message of Directior <MenubarShortcut><Mail /></MenubarShortcut>
+                        </MenubarItem>
+                    </Link>
+                </div>
             </MenubarContent>
         </MenubarMenu>
 
         <MenubarMenu>
             <MenubarTrigger className="hover:bg-accent cursor-pointer w-full sm:w-auto py-2 sm:py-1 text-lg sm:text-base"><Aperture size={18} className="mr-2 sm:hidden inline-block" />Profiles</MenubarTrigger>
-            <MenubarContent>
+            <MenubarContent className="bg-background/50 backdrop-blur-md">
                 <MenubarRadioGroup value="benoit">
                     <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
                     <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
@@ -243,7 +246,6 @@ const Navbar = () => {
                                     <span className="text-xl">IBA RU</span>
                                 </Link>
                             </SheetDescription>
-
                             <Menubar className="flex flex-col items-start rounded-lg  bg-sidebar p-0 border-0 shadow-none">
                                 {menu}
                             </Menubar>
@@ -251,14 +253,9 @@ const Navbar = () => {
                     </Sheet>
                 </div>
             </div>
-
             <div className="hidden sm:flex justify-center items-center">
                 {menu}
             </div>
-
-
-
-
             <div className="flex items-center gap-2 justify-between">
                 <ModeToggle />
                 {user?.email ?
@@ -282,7 +279,6 @@ const Navbar = () => {
 
             </div>
         </Menubar>
-
     );
 };
 
