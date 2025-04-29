@@ -90,7 +90,7 @@ const Reviews = () => {
     return (
         <>
             <Heading title="What Our Students Say" des="From classrooms to campus life, hear how IBA RU shaped minds, careers, and lasting memories. These are the voices that define us." />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-2">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
                 {reviews.map(review => <ReviewCard key={review.studentInfo.studentId} review={review} />)}
             </div>
 
