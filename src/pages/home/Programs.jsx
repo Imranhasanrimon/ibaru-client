@@ -38,7 +38,7 @@ const programs = [
 
 const Programs = () => {
     return (
-        <>
+        <div>
             <Heading title="Our Programs" des="Explore a range of business programs designed to shape future leaders through academic excellence and practical learning." />
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -59,7 +59,7 @@ const Programs = () => {
                 ))}
             </div>
 
-        </>
+        </div>
     );
 };
 

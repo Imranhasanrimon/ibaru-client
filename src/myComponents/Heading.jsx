@@ -1,9 +1,9 @@
 
 const Heading = ({ title, des }) => {
     return (
-        <div className='max-w-2xl mx-auto'>
+        <div className='max-w-2xl mx-auto mb-8'>
             <h3 className={`text-2xl sm:text-3xl text-center font-semibold mb-1`}>{title}</h3>
-            <p className={`text-center dark:text-slate-400  text-slate-600  px-4 mb-8`}>{des}</p>
+            <p className={`text-center dark:text-slate-400  text-slate-600  px-4`}>{des}</p>
         </div>
     );
 };

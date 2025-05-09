@@ -5,11 +5,13 @@ import PostModal from "@/pages/feeds/PostModal";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import MyPostCard from "./MyPostCard";
+import useAuth from "@/hooks/useAuth";
 
 const MyAllPosts = () => {
+    const { loading } = useAuth()
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
-    const { data: posts = [], refetch, isLoading } = useQuery({
+    const { data: posts = [], refetch, } = useQuery({
         queryKey: ["posts"],
         queryFn: async () => {
             const res = await axiosSecure(`/posts/allPosts/${id}`);
@@ -17,7 +19,7 @@ const MyAllPosts = () => {
         }
     })
 
-    if (isLoading) return <LoadingSpinner />
+    if (loading) return <LoadingSpinner />
     return (
         <main className="p-4">
             <PostModal refetch={refetch} />

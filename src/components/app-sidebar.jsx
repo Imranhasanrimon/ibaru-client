@@ -39,8 +39,8 @@ import LoadingSpinner from "@/myComponents/LoadingSpinner"
 export function AppSidebar({
   ...props
 }) {
-  const { user, loading } = useAuth();
-  if (loading) return <LoadingSpinner />
+  const { user, } = useAuth();
+  // if (loading) return <LoadingSpinner />
   const data = {
     user: {
       name: user && user.displayName,
@@ -162,7 +162,7 @@ export function AppSidebar({
       },
     ],
   }
-  if (loading) return <LoadingSpinner />
+  // if (loading) return <LoadingSpinner />
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>

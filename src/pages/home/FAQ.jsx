@@ -11,7 +11,7 @@ import Heading from "@/myComponents/Heading";
 
 const FAQ = () => {
     return (
-        < >
+        <div>
             <Heading title="FAQ" des="Answers to common questions about IBA RU, admissions, and programs." />
 
             <div className="grid md:grid-cols-2 gap-2  items-center">
@@ -79,7 +79,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-        </>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const WhyIBA = () => {
     return (
-        <Card className="max-w-4xl w-11/12 mx-auto shadow-lg">
+        <Card className=" shadow-lg">
             <CardHeader>
                 <CardTitle className="text-2xl font-bold text-center">Why IBA?</CardTitle>
             </CardHeader>

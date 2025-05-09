@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 
 const StatsHome = () => {
     return (
-        <>
+        <div>
             <Heading title="Institutional Highlights" des="An overview of IBA RU&apos;s achievements, academic excellence, and contributions to business education." />
             <div className='grid grid-cols-2 md:grid-cols-3 gap-4 text-center'>
                 <div className="bg-card dark:hover:bg-card/50 hover:bg-slate-100 duration-400 p-6 rounded-md border shadow flex flex-col items-center">
@@ -50,7 +50,7 @@ const StatsHome = () => {
                     <h3 className="text-sm text-muted-foreground mb-1">Scholarships Awarded</h3>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
