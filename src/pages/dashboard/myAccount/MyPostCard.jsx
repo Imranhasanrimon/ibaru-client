@@ -46,6 +46,14 @@ const MyPostCard = ({ post, refetch }) => {
     }
 
 
+    const unAvailableFeature = () => {
+        toast("Warning!", {
+            description: "This Feature is not available yet.",
+            classNames: {
+                title: "text-custom-destructive"
+            }
+        })
+    }
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
             <div className="flex flex-row items-center gap-4 relative">
@@ -67,45 +75,31 @@ const MyPostCard = ({ post, refetch }) => {
                         <Button variant="outline" className="absolute right-0 w-8 h-8 cursor-pointer"><EllipsisVertical /></Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            {/* <DropdownMenuItem>
-                                Profile
-                                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Billing
-                                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Settings
-                                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Keyboard shortcuts
-                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                            </DropdownMenuItem> */}
-                        </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>Team</DropdownMenuItem>
                             <DropdownMenuItem onClick={handleDeletePost} className="cursor-pointer">
                                 Delete Post
                                 <DropdownMenuShortcut><Trash className="text-red-500" /></DropdownMenuShortcut>
                             </DropdownMenuItem>
 
                             <EditPostModal post={post} refetch={refetch} />
+
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Profile
+                                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Billing
+                                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Settings
+                                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Keyboard shortcuts
+                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
+                            </DropdownMenuItem>
                         </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>GitHub</DropdownMenuItem>
-                        <DropdownMenuItem>Support</DropdownMenuItem>
-                        <DropdownMenuItem disabled>API</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            Log out
-                            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>

@@ -1,6 +1,5 @@
 import {
     Menubar,
-    MenubarCheckboxItem,
     MenubarContent,
     MenubarItem,
     MenubarMenu,
@@ -23,7 +22,6 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-import img from "../assets/logo/IBA_logo_rounded.png"
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Link } from "react-router-dom";
@@ -242,7 +240,7 @@ const Navbar = () => {
                             <SheetTitle className="sr-only">My Hidden Sheet Title</SheetTitle>
                             <SheetDescription className="text-primary">
                                 <Link to="/" className="inline-flex items-center gap-2 cursor-pointer">
-                                    <img src={img} className="w-8 object-cover" alt="IBA logo" />
+                                    <img src="https://i.ibb.co.com/gLx0wMNK/logo-common.jpg" className="w-8 object-cover rounded-full" alt="IBA logo" />
                                     <span className="text-xl">IBA RU</span>
                                 </Link>
                             </SheetDescription>

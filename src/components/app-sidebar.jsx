@@ -9,7 +9,6 @@ import {
   IconFileWord,
   IconFolder,
   IconHelp,
-  IconInnerShadowTop,
   IconListDetails,
   IconReport,
   IconSearch,
@@ -33,7 +32,7 @@ import {
 } from "@/components/ui/sidebar"
 import useAuth from "@/hooks/useAuth"
 import { getStudentId } from "@/utils"
-import LoadingSpinner from "@/myComponents/LoadingSpinner"
+import { Link } from "react-router-dom"
 
 
 export function AppSidebar({
@@ -169,10 +168,10 @@ export function AppSidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </a>
+              <Link to="/">
+                <img src="https://i.ibb.co.com/gLx0wMNK/logo-common.jpg" alt="IBA Logo" className="!size-6 object-cover rounded-full" />
+                <span className="text-base font-semibold">IBA</span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

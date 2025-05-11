@@ -36,6 +36,13 @@ const Reviews = () => {
             return res.data;
         }
     })
+    const sutdentId = user && getStudentId(user.email)
+    let isPosted = false
+    reviews.find(rev => {
+        if (rev.studentInfo.studentId === sutdentId) {
+            isPosted = true;
+        }
+    });
 
     const [rating, setRating] = useState(0)
 
@@ -50,12 +57,35 @@ const Reviews = () => {
                 rating,
                 studentId: user && getStudentId(user.email)
             }
+            if (data.reviewBody.length < 150) {
+                toast("Warning!", {
+                    description: "Your review must be at least 150 characters long.",
+                    classNames: {
+                        title: "text-custom-destructive"
+                    }
+                })
+                return;
+            }
+            if (rating == 0) {
+                toast("Warning!", {
+                    description: "Set your rating.",
+                    classNames: {
+                        title: "text-custom-destructive"
+                    }
+                })
+                return;
+            }
+            if (isPosted) {
+                toast("Warning!", {
+                    description: "You cannot review  twice.",
+                    classNames: {
+                        title: "text-custom-destructive"
+                    }
+                })
+                return;
+            }
             axiosSecure.post('/reviews/create', reviewInfo)
-        },
-
-        onSuccess: () => {
             reset()
-            refetch()
             setOpen(false)
             toast("Thanks!", {
                 description: "Your review  has been submitted.",
@@ -64,6 +94,10 @@ const Reviews = () => {
                     // onClick: () => navigate("/dashboard")
                 },
             })
+        },
+
+        onSuccess: () => {
+            refetch()
         },
         onError: () => {
             console.log("Error")

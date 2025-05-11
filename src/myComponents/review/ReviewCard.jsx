@@ -42,7 +42,7 @@ const ReviewCard = ({ review }) => {
             </CardHeader>
 
             <CardContent className="text-sm flex-grow">
-                <CardDescription className="text-center">{reviewBody}</CardDescription>
+                <CardDescription className="text-center">{reviewBody.slice(0, 220)}</CardDescription>
             </CardContent>
 
             <CardFooter className="justify-center">

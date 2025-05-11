@@ -29,7 +29,6 @@ import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import { useState } from "react";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { DropdownMenuItem, DropdownMenuShortcut } from "@/components/ui/dropdown-menu";
-import { useTheme } from "@/hooks/useTheme";
 import { toast } from "sonner";
 
 
@@ -40,7 +39,6 @@ const EditPostModal = ({ refetch, post }) => {
     const { user, loading } = useAuth();
     const { register, handleSubmit, setValue, reset, } = useForm();
     const axiosSecure = useAxiosSecure();
-    const { theme } = useTheme();
 
     const onSubmit = async (data, e) => {
         const image = e.target.image.files[0];
@@ -76,7 +74,7 @@ const EditPostModal = ({ refetch, post }) => {
                     <DropdownMenuShortcut><FilePenLine /></DropdownMenuShortcut>
                 </DropdownMenuItem> */}
 
-                <h1 className={`focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-slate-${theme == "light" ? "100" : "800"} cursor-pointer`}>Edit Post
+                <h1 className={`focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 hover:bg-slate-100 cursor-pointer dark:hover:bg-slate-800`}>Edit Post
                     <DropdownMenuShortcut><FilePenLine /></DropdownMenuShortcut></h1>
             </DialogTrigger>
 

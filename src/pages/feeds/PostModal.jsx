@@ -24,7 +24,7 @@ import useAuth from "@/hooks/useAuth";
 import { Separator } from "@/components/ui/separator";
 import { useNavigate } from "react-router-dom";
 import { getStudentId, imageUpload } from "@/utils";
-import { Image, SmilePlus, MapPin, Frown, Angry, Smile, Laugh } from 'lucide-react';
+import { Image, SmilePlus, MapPin, Frown, Angry, Smile, Laugh, Camera } from 'lucide-react';
 import { useForm } from "react-hook-form";
 import LoadingSpinner from "@/myComponents/LoadingSpinner";
 import { useState } from "react";
@@ -138,19 +138,24 @@ const PostModal = ({ refetch }) => {
                     )}
 
                     <div className="flex gap-3 items-center justify-between">
-                        <Input
-                            type="file"
-                            name="image"
-                            onChange={(e) =>
-                                setUploadImage({
-                                    image: e.target.files[0],
-                                    url: URL.createObjectURL(e.target.files[0]),
-                                })
-                            }
-                        />
+                        <label className="file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 pt-[6px] text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm cursor-pointer items-center gap-1 justify-center">
+                            <Camera className="w-5 h-5 -mt-1" />
+                            Choose Image
+                            <input
+                                type="file"
+                                name="image"
+                                className="hidden"
+                                onChange={(e) =>
+                                    setUploadImage({
+                                        image: e.target.files[0],
+                                        url: URL.createObjectURL(e.target.files[0]),
+                                    })
+                                }
+                            />
+                        </label>
 
                         <Select onValueChange={(val) => setValue("feeling", val)}>
-                            <SelectTrigger className="w-[150px]">
+                            <SelectTrigger className="w-[150px] cursor-pointer">
                                 <SelectValue placeholder="Feeling" />
                             </SelectTrigger>
                             <SelectContent>
@@ -175,7 +180,7 @@ const PostModal = ({ refetch }) => {
                             </SelectContent>
                         </Select>
 
-                        <Button type="button" variant="outline">
+                        <Button type="button" variant="outline" className="cursor-pointer">
                             <MapPin className="text-red-500 mr-1" size={16} />
                             Location
                         </Button>

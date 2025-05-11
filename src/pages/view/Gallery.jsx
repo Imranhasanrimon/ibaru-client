@@ -86,12 +86,6 @@ const Gallery = () => {
                 studentId: user && getStudentId(user.email)
             }
             axiosSecure.post('/gallery/create', postInfo)
-        },
-        onSuccess: () => {
-            reset()
-            refetch()
-            setOpen(false)
-            setUploadImage("")
             toast("Successful!", {
                 description: "Your request  has been submitted for Admin approval.",
                 action: {
@@ -99,6 +93,12 @@ const Gallery = () => {
                     // onClick: () => navigate("/dashboard")
                 },
             })
+            reset()
+            setUploadImage("")
+            setOpen(false)
+        },
+        onSuccess: () => {
+            refetch()
         },
         onError: () => {
             console.log("Error")
@@ -131,7 +131,7 @@ const Gallery = () => {
             <div className="relative h-64 md:h-80 lg:h-96  rounded-2xl overflow-hidden mb-8">
                 <img src={heroImg} className="object-cover w-full h-full" alt="Campus Banner" />
                 <div className="absolute inset-0  flex items-center justify-center text-white text-4xl font-bold">
-                    Campus Gallery 📸
+                    {/* write text here */}
                 </div>
             </div>
 

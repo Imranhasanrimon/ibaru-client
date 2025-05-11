@@ -48,7 +48,14 @@ const PostCard = ({ post, refetch }) => {
         })
     }
 
-
+    const unAvailableFeature = () => {
+        toast("Warning!", {
+            description: "This Feature is not available yet.",
+            classNames: {
+                title: "text-custom-destructive"
+            }
+        })
+    }
     return (
         <Card className="w-full max-w-xl mx-auto shadow-md p-4">
             <div className="flex flex-row items-center gap-4 relative">
@@ -70,37 +77,13 @@ const PostCard = ({ post, refetch }) => {
                         <Button variant="outline" className="absolute right-0 w-8 h-8 cursor-pointer"><EllipsisVertical /></Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56 mr-8 ">
-                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                Profile
-                                <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Billing
-                                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Settings
-                                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Keyboard shortcuts
-                                <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-                            </DropdownMenuItem>
-
-                            {user && getStudentId(user.email) === studentId && <>
+                            {user && getStudentId(user.email) === studentId ? <>
                                 <EditPostModal post={post} refetch={refetch} /> <DropdownMenuItem onClick={handleDeletePost} className="cursor-pointer">
                                     Delete Post
                                     <DropdownMenuShortcut><Trash className="text-red-500" /></DropdownMenuShortcut>
                                 </DropdownMenuItem>
-                            </>}
-                        </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            <DropdownMenuItem>Team</DropdownMenuItem>
-                            <DropdownMenuSub>
+                            </> : <DropdownMenuSub>
                                 <DropdownMenuSubTrigger>Report Post</DropdownMenuSubTrigger>
                                 <DropdownMenuPortal>
                                     <DropdownMenuSubContent>
@@ -111,21 +94,24 @@ const PostCard = ({ post, refetch }) => {
                                         <DropdownMenuItem>sexually explicit</DropdownMenuItem>
                                     </DropdownMenuSubContent>
                                 </DropdownMenuPortal>
-                            </DropdownMenuSub>
-                            <DropdownMenuItem>
-                                New Team
-                                <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
+                            </DropdownMenuSub>}
+
+                            <Link to={`/${user && getStudentId(user.email) === studentId ? "dashboard/my-account" : `student-profile/${studentId}`}`}>
+                                <DropdownMenuItem>
+                                    Profile
+                                    <DropdownMenuShortcut>⇧P</DropdownMenuShortcut>
+                                </DropdownMenuItem>
+                            </Link>
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Billing
+                                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={unAvailableFeature}>
+                                Settings
+                                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>GitHub</DropdownMenuItem>
-                        <DropdownMenuItem>Support</DropdownMenuItem>
-                        <DropdownMenuItem disabled>API</DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            Log out
-                            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-                        </DropdownMenuItem>
+
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
