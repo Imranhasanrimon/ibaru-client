@@ -27,6 +27,7 @@ import MyAllPosts from "@/pages/dashboard/myAccount/MyAllPosts";
 import StudentFeeds from "@/pages/feeds/StudentFeeds";
 import Gallery from "@/pages/view/Gallery";
 import Batch from "@/pages/view/Batch";
+import OurBatch from "@/pages/dashboard/ourBatch/OurBatch";
 
 export const router = createBrowserRouter([
     {
@@ -151,7 +152,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "our-batch",
-                element: <h1>our batch</h1>
+                element: <OurBatch />
             },
         ]
     },
