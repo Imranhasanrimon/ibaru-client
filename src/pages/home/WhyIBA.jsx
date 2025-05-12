@@ -1,4 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";;
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; import Search from "@/myComponents/search/BloodSearch";
+;
 
 const WhyIBA = () => {
     return (
@@ -17,6 +18,7 @@ const WhyIBA = () => {
                     <li> One moment you are attending an event, the next moment you are organizing it! Yeah, that’s life at IBA.</li>
                     <li> Nothing feels as good as being part of the best business school in the country.</li>
                 </ul>
+                <Search />
             </CardContent>
         </Card>
     );

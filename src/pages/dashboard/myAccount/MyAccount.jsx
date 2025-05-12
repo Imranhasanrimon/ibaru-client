@@ -25,7 +25,6 @@ const MyAccount = () => {
     const { name, studentId, registration, session, batch, image, coverImage, NID, birthDate, bloodGroup, district, email, fatherName, motherName, gender, hall, height, phoneNo, religion } = studentInfo;
 
 
-
     if (isLoading || loading) return <LoadingSpinner />
     return (
         <div className="sm:w-lg lg:w-2xl w-full mx-auto p-4">

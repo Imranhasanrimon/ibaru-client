@@ -26,7 +26,7 @@ const StudentFeeds = () => {
 
             {/* Main Content */}
             <main className="grid  mx-auto gap-4">
-                {posts.length === 0 && <div className="min-h-[400px] flex flex-col gap-4 items-center justify-center"><h3 className="text-xl text-center font-semibold">He has not posted yet.</h3> <Button onClick={() => navigate(-1)} variant="outline">Back</Button></div>}
+                {posts.length === 0 && <div className="min-h-[400px] flex flex-col gap-4 items-center justify-center"><h3 className="text-xl text-center font-semibold">This student has not posted yet.</h3> <Button onClick={() => navigate(-1)} variant="outline">Back</Button></div>}
                 {posts.map(post => <PostCard key={post._id} post={post} ></PostCard>)}
             </main>
 
