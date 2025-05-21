@@ -5,6 +5,7 @@ import { ChartNoAxesCombinedIcon, DollarSign, Facebook, GraduationCap, HandCoins
 import { Button } from "@/components/ui/button";
 import { IconBrandFacebook, IconBrandFacebookFilled, IconBrandLinkedin, IconBrandLinkedinFilled, IconMessage2, IconMessageDots } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
+import BloodSearch from "@/myComponents/search/BloodSearch";
 
 const Banner = () => {
     return (
@@ -32,31 +33,33 @@ const Banner = () => {
                 {/* <p className="">Welcome to our platform</p> */}
             </div>
 
-            <div className="absolute flex  justify-between items-center gap-4 z-10   bottom-1/2 translate-y-29 sm:translate-y-36 left-1/2 -translate-x-1/2   border-0  dark:border-red-400 border-red-500 rounded-lg ">
-                <Link to="https://www.facebook.com/IBA.RajshahiUniversity">
-                    <IconBrandFacebookFilled
-                        className="border-3  dark:border-white border-black rounded-md p-[3px] cursor-pointer w-8 h-8"
-                    />
-                </Link>
+            <div className="absolute z-10 bottom-1/2 translate-y-29 sm:translate-y-36 left-1/2 -translate-x-1/2">
+                <div className="flex  justify-between items-center gap-4">
+                    <Link to="https://www.facebook.com/IBA.RajshahiUniversity">
+                        <IconBrandFacebookFilled
+                            className="border-3  dark:border-white border-black rounded-md p-[3px] cursor-pointer w-8 h-8"
+                        />
+                    </Link>
 
-                <Mail
-                    className="border-3  dark:border-white border-black rounded-md p-[3px]  cursor-pointer w-8 h-8 ml-1 "
-                    onClick={() => {
-                        window.location.href = `mailto:ibaru.ac.bd@gmail.com`
-                    }}
-                />
-                <Link to="https://www.linkedin.com/school/institute-of-business-administration-university-of-rajshahi/">
-                    <IconBrandLinkedin
-                        className="  cursor-pointer w-10 h-10"
+                    <Mail
+                        className="border-3  dark:border-white border-black rounded-md p-[3px]  cursor-pointer w-8 h-8 ml-1 "
+                        onClick={() => {
+                            window.location.href = `mailto:ibaru.ac.bd@gmail.com`
+                        }}
                     />
-                </Link>
+                    <Link to="https://www.linkedin.com/school/institute-of-business-administration-university-of-rajshahi/">
+                        <IconBrandLinkedin
+                            className="  cursor-pointer w-10 h-10"
+                        />
+                    </Link>
 
-                <Link>
-                    <IconMessageDots
-                        className="border-3  dark:border-white border-black rounded-md p-[3px]  cursor-pointer w-8 h-8"
-                    />
-                </Link>
-
+                    <Link>
+                        <IconMessageDots
+                            className="border-3  dark:border-white border-black rounded-md p-[3px]  cursor-pointer w-8 h-8"
+                        />
+                    </Link>
+                </div>
+                <BloodSearch />
             </div>
 
 

@@ -120,7 +120,7 @@ const PostCard = ({ post, refetch }) => {
 
             <CardContent className="p-0">
                 <p className="whitespace-pre-line">{postBody}</p>
-                {post?.imageURL && <img className="rounded-lg mt-3" src={post?.imageURL} alt="post photo" />}
+                {post?.imageURL && <img className="rounded-lg mt-3 w-full max-h-[450px] object-cover" src={post?.imageURL} alt="post photo" />}
 
                 <div className="mt-3 flex items-center gap-4">
                     <TooltipProvider>

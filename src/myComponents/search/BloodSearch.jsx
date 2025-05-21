@@ -30,7 +30,7 @@ const BloodSearch = () => {
     const axiosSecure = useAxiosSecure();
 
     const { data: students = [] } = useQuery({
-        queryKey: ['students', search], // Re-fetch when `search` changes
+        queryKey: ['BGstudents', search], // Re-fetch when `search` changes
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/allUsers/${search}`);
             return res.data;
@@ -44,9 +44,9 @@ const BloodSearch = () => {
                     variant="outline"
                     role="combobox"
                     aria-expanded={open}
-                    className="w-[320px] justify-between"
+                    className="w-[320px] justify-between absolute left-1/2 -translate-x-1/2 top-13 md:top-16 bg-transparent"
                 >
-                    Search
+                    <span className="opacity-70"> Search Blood Group</span>
                     <SearchIcon className="opacity-50" />
                 </Button>
             </PopoverTrigger>
